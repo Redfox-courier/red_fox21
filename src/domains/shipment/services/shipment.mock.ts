@@ -1,0 +1,57 @@
+import type { Shipment } from "../types";
+
+export const MOCK_SHIPMENTS: Shipment[] = [
+  {
+    id: "SHP-001",
+    trackingNumber: "RFC8A3F92B1",
+    origin: {
+      name: "Ravi Sharma",
+      street: "12, MG Road",
+      city: "Mumbai",
+      state: "Maharashtra",
+      country: "India",
+      postalCode: "400001",
+      phone: "+91 98765 43210",
+    },
+    destination: {
+      name: "John Doe",
+      street: "221B Baker Street",
+      city: "London",
+      state: "England",
+      country: "UK",
+      postalCode: "NW1 6XE",
+    },
+    status: "in_transit",
+    weight: 2.5,
+    estimatedDelivery: "2026-04-05T00:00:00Z",
+    courier: "DHL Express",
+    createdAt: "2026-03-28T10:00:00Z",
+    updatedAt: "2026-03-30T14:00:00Z",
+  },
+  {
+    id: "SHP-002",
+    trackingNumber: "RFC1D4E77C9",
+    origin: {
+      name: "Priya Nair",
+      street: "45, Anna Salai",
+      city: "Chennai",
+      state: "Tamil Nadu",
+      country: "India",
+      postalCode: "600002",
+    },
+    destination: {
+      name: "Sarah Lee",
+      street: "5th Ave",
+      city: "New York",
+      state: "NY",
+      country: "USA",
+      postalCode: "10001",
+    },
+    status: "delivered",
+    weight: 1.2,
+    estimatedDelivery: "2026-03-29T00:00:00Z",
+    courier: "FedEx International",
+    createdAt: "2026-03-22T08:00:00Z",
+    updatedAt: "2026-03-29T09:30:00Z",
+  },
+];

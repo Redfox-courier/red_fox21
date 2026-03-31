@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* ─── RedFox Design Tokens ───────────────────────────────── */
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -49,6 +51,18 @@
 }
 
 :root {
+  /* Brand */
+  --rf-orange: #E84C14;
+  --rf-orange-dark: #d0430f;
+  --rf-orange-light: #FFF0EB;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -123,8 +137,29 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
+}
+
+@layer utilities {
+  /* Country card gradient overlay */
+  .rf-card-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.28) 55%,
+      transparent 100%
+    );
+  }
+
+  /* Orange brand text */
+  .text-rf-orange { color: var(--rf-orange); }
+  .bg-rf-orange { background-color: var(--rf-orange); }
+  .bg-rf-orange-light { background-color: var(--rf-orange-light); }
 }
