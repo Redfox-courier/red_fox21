@@ -35,7 +35,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="pb-6 pt-12 text-center">
+    <section className="pb-8 pt-32 text-center">
       {/* Badge */}
       <div className="mb-5 flex justify-center">
         <span className="inline-flex items-center gap-0 rounded-full bg-brand-600 p-1.5 
@@ -76,7 +76,7 @@ export function HeroSection() {
             className={cn(
               "absolute inset-0 flex items-center justify-start  text-[#E84C14]",
               phase === "enter" && "destination-enter",
-              phase === "exit"  && "destination-exit"
+              phase === "exit" && "destination-exit"
             )}
           >
             {DESTINATIONS[currentIndex]}.
