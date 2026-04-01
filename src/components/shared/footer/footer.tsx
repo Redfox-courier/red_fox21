@@ -16,7 +16,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-18 sm:grid-cols-2 lg:grid-cols-[220px_1fr_1fr_1fr_260px]">
 
           {/* Brand */}
-          <div className="space-y-5">
+          <div className="flex flex-col gap-6">
             <Link href="/">
               <Image
                 src="/footer/Logo container.svg"
