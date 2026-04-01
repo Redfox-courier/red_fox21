@@ -17,7 +17,7 @@ export function Navbar() {
   const TrackIcon = Icons.logistics.truck;
 
   return (
-    <header className="sticky top-0 z-50 bg-white-100 border-b border-neutral-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white-100 border-b border-neutral-100 ">
       <Container>
         <nav className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -25,10 +25,9 @@ export function Navbar() {
             <Image
               src="/Home/REDFOXCOURIER LOGO.svg"
               alt="Redfox Courier Logo"
-              width={160}
-              height={40}
+              width={197}
+              height={24}
               priority
-              className="h-10 w-auto"
             />
           </Link>
 

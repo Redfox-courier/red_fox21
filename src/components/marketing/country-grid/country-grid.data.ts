@@ -131,7 +131,7 @@ export const TRENDING_COUNTRIES: CountryCardData[] = [
     id: "SA",
     country: "Saudi Arabia",
     slug: "saudi-arabia",
-    imageUrl: "/Redfox Country images/Saudi Arabia.png",
+    imageUrl: "/Redfox Country images/Saudi-Arabia.png",
     estimatedRate: "₹900/kg",
     ordersDelivered: "8k+",
     deliveryTime: "5–7 days",
