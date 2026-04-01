@@ -26,8 +26,10 @@ export function CountryCard({ data, className }: CountryCardProps) {
       href={`/ship-to/${data.slug}` as never}
       className={cn(
         "group relative flex flex-col justify-end overflow-hidden",
-        "w-full aspect-[9/10]",
-        "rounded-2xl sm:rounded-[24px]",
+        "w-full h-[360px]", // ✅ Figma exact size
+        "rounded-[24px]", // closer to Figma than rounded-2xl
+        "cursor-pointer",
+        "rounded-[24px]", // closer to Figma than rounded-2xl
         "cursor-pointer",
         "shadow-[0_2px_12px_rgba(0,0,0,0.10)] transition-all duration-300",
         "hover:shadow-[0_8px_32px_rgba(193,66,27,0.18)] hover:-translate-y-1",
@@ -40,7 +42,7 @@ export function CountryCard({ data, className }: CountryCardProps) {
         alt={`Ship to ${data.country}`}
         fill
         className="object-cover transition-transform duration-500 group-hover:scale-105"
-        sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px)   25vw, 20vw"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" // ✅ optimized for fixed width
       />
 
       {/* Gradient overlay */}
