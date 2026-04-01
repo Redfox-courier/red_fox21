@@ -86,11 +86,11 @@ export function Footer() {
               variant="c1Semi"
               color="text.disabled"
               as="h4"
-              className="mb-4 uppercase tracking-widest"
+              className="mb-4 uppercase tracking-widest text-white-100"
             >
               Our Services
             </Typography>
-            <ul className="space-y-2.5">
+            <ul className="space-y-0.5">
               {FOOTER_SERVICES.map((s) => (
                 <li key={s}>
                   <Link href="#" className="type-b2-reg text-neutral-400 hover:text-brand-500 transition-colors">
@@ -107,11 +107,11 @@ export function Footer() {
               variant="c1Semi"
               color="text.disabled"
               as="h4"
-              className="mb-4 uppercase tracking-widest"
+              className="mb-4 uppercase tracking-widest text-white-100"
             >
               Industries
             </Typography>
-            <ul className="space-y-2.5">
+            <ul className="space-y-0.5">
               {FOOTER_INDUSTRIES.map((s) => (
                 <li key={s}>
                   <Link href="#" className="type-b2-reg text-neutral-400 hover:text-brand-500 transition-colors">
@@ -126,13 +126,12 @@ export function Footer() {
           <div>
             <Typography
               variant="c1Semi"
-              color="text.disabled"
               as="h4"
-              className="mb-4 uppercase tracking-widest"
+              className="mb-4 uppercase tracking-widest text-white-100"
             >
               Resources
             </Typography>
-            <ul className="space-y-2.5">
+            <ul className="space-y-0.5">
               {FOOTER_RESOURCES.map((r) => (
                 <li key={r.label}>
                   <Link href={r.href} className="type-b2-reg text-neutral-400 hover:text-brand-500 transition-colors">
