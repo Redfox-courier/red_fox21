@@ -36,6 +36,48 @@ export function Footer() {
               Get in touch
               <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
+
+             <div className="pt-10 flex items-end justify-between">
+  
+              {/* LEFT: Social Icons */}
+              <div className="space-y-3">
+                {/* Top */}
+                <div>
+                  <Link className="flex h-10 w-10 items-center justify-center rounded-full bg-white-100" href={""}>
+                    <Image src="/footer/Vector-1.svg" alt="" width={14} height={14} />
+                  </Link>
+                </div>
+
+                {/* Middle */}
+                <div className="flex gap-3">
+                  <Link className="flex h-10 w-10 items-center justify-center rounded-full bg-white-100" href={""}>
+                    <Image src="/footer/Vector-2.svg" alt="" width={14} height={14} />
+                  </Link>
+                  <Link className="flex h-10 w-10 items-center justify-center rounded-full bg-white-100" href={""}>
+                    <Image src="/footer/Vector-3.svg" alt="" width={14} height={14} />
+                  </Link>
+                </div>
+
+                {/* Bottom */}
+                <div className="flex gap-3">
+                  <Link className="flex h-10 w-10 items-center justify-center rounded-full bg-white-100" href={""}>
+                    <Image src="/footer/Vector-4.svg" alt="" width={14} height={14} />
+                  </Link>
+                  <Link className="flex h-10 w-10 items-center justify-center rounded-full bg-white-100" href={""}>
+                    <Image src="/footer/Vector.svg" alt="" width={14} height={14} />
+                  </Link>
+                </div>
+              </div>
+
+              {/* RIGHT: Copyright */}
+              <div className="text-xs text-neutral-400 leading-relaxed text-right">
+                <p>© 2021 — Copyright</p>
+                <p>All Rights reserved</p>
+              </div>
+
+            </div>
+
+
           </div>
 
           {/* Services */}
@@ -44,11 +86,11 @@ export function Footer() {
               variant="c1Semi"
               color="text.disabled"
               as="h4"
-              className="mb-4 uppercase tracking-widest"
+              className="mb-4 uppercase tracking-widest text-white-100"
             >
               Our Services
             </Typography>
-            <ul className="space-y-2.5">
+            <ul className="space-y-0.5">
               {FOOTER_SERVICES.map((s) => (
                 <li key={s}>
                   <Link href="#" className="type-b2-reg text-neutral-400 hover:text-brand-500 transition-colors">
@@ -65,11 +107,11 @@ export function Footer() {
               variant="c1Semi"
               color="text.disabled"
               as="h4"
-              className="mb-4 uppercase tracking-widest"
+              className="mb-4 uppercase tracking-widest text-white-100"
             >
               Industries
             </Typography>
-            <ul className="space-y-2.5">
+            <ul className="space-y-0.5">
               {FOOTER_INDUSTRIES.map((s) => (
                 <li key={s}>
                   <Link href="#" className="type-b2-reg text-neutral-400 hover:text-brand-500 transition-colors">
@@ -84,13 +126,12 @@ export function Footer() {
           <div>
             <Typography
               variant="c1Semi"
-              color="text.disabled"
               as="h4"
-              className="mb-4 uppercase tracking-widest"
+              className="mb-4 uppercase tracking-widest text-white-100"
             >
               Resources
             </Typography>
-            <ul className="space-y-2.5">
+            <ul className="space-y-0.5">
               {FOOTER_RESOURCES.map((r) => (
                 <li key={r.label}>
                   <Link href={r.href} className="type-b2-reg text-neutral-400 hover:text-brand-500 transition-colors">
@@ -105,13 +146,10 @@ export function Footer() {
           <div>
             <div className="rounded-2xl border border-neutral-700 bg-black-200 p-5 space-y-3">
               <div className="flex items-center justify-between">
-                <Typography variant="t4Semi" color="text.white" as="h4">
-                  Get in touch
-                </Typography>
-                <ArrowUpRight className="h-4 w-4 text-neutral-400" />
+                <h4 className="type-t4-semi text-white-100">Get in touch</h4>
+                <ArrowUpRight className="h-6 w-6 text-neutral-400" />
               </div>
               <div className="flex items-start gap-2">
-                <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0 text-brand-500" />
                 <Typography variant="c1Medium" color="text.disabled" as="p" className="leading-relaxed">
                   Unit no. 404, Felix Tower,<br />
                   LBS Marg, Dadar, Asalfa,<br />
@@ -124,24 +162,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-neutral-800 pt-6">
-          <div className="flex items-center gap-4">
-            {["ok.ru", "vk.com", "facebook", "telegram", "instagram"].map((icon) => (
-              <a
-                key={icon}
-                href="#"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-700 type-c2-semi text-neutral-400 hover:border-brand-600 hover:text-brand-500 transition-colors"
-                aria-label={icon}
-              >
-                {icon[0].toUpperCase()}
-              </a>
-            ))}
-          </div>
-          <Typography variant="c2Medium" color="text.hint">
-            © 2021 – Copyright · All rights reserved
-          </Typography>
-        </div>
       </Container>
     </footer>
   );
