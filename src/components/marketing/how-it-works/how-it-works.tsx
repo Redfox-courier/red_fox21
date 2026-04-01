@@ -1,11 +1,13 @@
+"use client";
+
+import Image from "next/image";
+import WebhookIcon from "@mui/icons-material/Webhook";
 import { cn } from "@/core/utils/cn";
 import { Container } from "@/components/shared/container/container";
-import { Smartphone, Truck, MapPin } from "lucide-react";
 
 interface Step {
   id: number;
-  icon: React.ReactNode;
-  illustrationBg: string;
+  image: string;
   title: string;
   description: string;
 }
@@ -13,24 +15,21 @@ interface Step {
 const STEPS: Step[] = [
   {
     id: 1,
-    icon: <Smartphone className="h-10 w-10 text-[#E84C14]" />,
-    illustrationBg: "bg-[#EEF2FF]",
+    image: "/footer/Submit Shipment.svg",
     title: "Submit Shipment Details",
     description:
       "Share your pickup address, parcel information, and destination details on our website.",
   },
   {
     id: 2,
-    icon: <Truck className="h-10 w-10 text-[#E84C14]" />,
-    illustrationBg: "bg-[#FFF3ED]",
+    image: "/footer/Pickup & INternational.svg",
     title: "Pickup & International Dispatch",
     description:
       "A verified courier partner collects your parcel from your doorstep and dispatches it for international delivery.",
   },
   {
     id: 3,
-    icon: <MapPin className="h-10 w-10 text-[#E84C14]" />,
-    illustrationBg: "bg-[#F0FFF4]",
+    image: "/footer/Track until final.svg",
     title: "Track Until Final Delivery",
     description:
       "Monitor your shipment in real time until it is delivered to the recipient.",
@@ -43,23 +42,32 @@ interface StepCardProps {
 
 function StepCard({ step }: StepCardProps) {
   return (
-    <div className="flex flex-col items-start gap-5">
-      {/* Illustration placeholder */}
-      <div
-        className={cn(
-          "flex h-52 w-full items-center justify-center rounded-3xl",
-          step.illustrationBg
-        )}
-      >
-        <div className="flex flex-col items-center gap-3">
-          {step.icon}
-          <span className="text-4xl font-black text-gray-200 select-none">0{step.id}</span>
-        </div>
+    <div
+      className={cn(
+        "flex flex-col items-start",
+        "rounded-3xl bg-white overflow-hidden",
+        "border border-white",
+        "shadow-sm"
+      )}
+    >
+      {/* Image area */}
+      <div className="relative w-full h-[322px] bg-[#FFF7F5]">
+        <Image
+          src={step.image}
+          alt={step.title}
+          fill
+          className="object-contain p-6"
+        />
       </div>
 
-      <div>
-        <h3 className="text-base font-bold text-gray-900 mb-1.5">{step.title}</h3>
-        <p className="text-sm text-gray-500 leading-relaxed">{step.description}</p>
+      {/* Text area */}
+      <div className="p-6">
+        <h3 className="text-base font-bold text-gray-900 mb-1.5">
+          {step.title}
+        </h3>
+        <p className="text-sm text-gray-500 leading-relaxed">
+          {step.description}
+        </p>
       </div>
     </div>
   );
@@ -67,17 +75,43 @@ function StepCard({ step }: StepCardProps) {
 
 export function HowItWorks() {
   return (
-    <section className="py-16 bg-white">
+    <section
+      className="py-16 bg-white"
+      style={{
+        background:
+          "radial-gradient(ellipse 30% 50% at 0% 50%, rgba(253,189,165,0.3) 0%, transparent 70%), radial-gradient(ellipse 30% 50% at 100% 50%, rgba(253,189,165,0.3) 0%, transparent 70%), #ffffff",
+      }}
+    >
       <Container>
         {/* Section label */}
-        <div className="mb-12 flex items-center justify-center gap-2">
-          <Truck className="h-4 w-4 text-[#E84C14]" />
-          <span className="text-sm font-semibold text-gray-600">
-            How RedFoxCourier works
-          </span>
+        <div className="mb-12 flex items-center justify-center">
+          <div
+            className="
+              inline-flex items-center gap-2
+              rounded-[40px]
+              border border-[#FFEEE8]
+              bg-[#FFF7F5]
+              px-4 py-1.5
+            "
+          >
+            <span
+              className="
+                flex h-6 w-6 items-center justify-center
+                rounded-full
+                border border-[#FDBDA5]
+                bg-[#E84C14]/10
+              "
+            >
+              <WebhookIcon sx={{ fontSize: 14, color: "#E84C14" }} />
+            </span>
+
+            <span className="text-sm font-semibold text-gray-700">
+              How RedFoxCourier works
+            </span>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
           {STEPS.map((step) => (
             <StepCard key={step.id} step={step} />
           ))}
