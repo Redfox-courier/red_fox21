@@ -3,6 +3,7 @@
 import WebhookIcon from "@mui/icons-material/Webhook";
 import { cn } from "@/core/utils/cn";
 import { Container } from "@/components/shared/container/container";
+import { Typography } from "@/components/ui/typography";
 
 interface Step {
   id: number;
@@ -62,13 +63,13 @@ function StepCard({ step }: StepCardProps) {
       <div className="h-px bg-gray-100 mx-5" />
 
       {/* Text area */}
-      <div className="px-5 pt-4 ">
-        <h3 className="text-sm font-bold text-gray-900 mb-1">
+      <div className="p-6">
+        <Typography variant="t3Bold" color="text.primary" as="h3" className="mb-1.5">
           {step.title}
-        </h3>
-        <p className="text-xs text-gray-500 leading-relaxed">
+        </Typography>
+        <Typography variant="b2Regular" color="text.hint">
           {step.description}
-        </p>
+        </Typography>
       </div>
     </div>
   );
@@ -105,9 +106,9 @@ export function HowItWorks() {
             >
               <WebhookIcon sx={{ fontSize: 14, color: "#E84C14" }} />
             </span>
-            <span className="type-b2-semi text-neutral-700">
+            <Typography variant="b2Semi" color="text.secondary" as="span">
               How RedFoxCourier works
-            </span>
+            </Typography>
           </div>
         </div>
 

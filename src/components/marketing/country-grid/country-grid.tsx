@@ -6,6 +6,7 @@ import { CountryCard } from "./country-card";
 import { TRENDING_COUNTRIES } from "./country-grid.data";
 import { Input } from "@/components/ui/input";
 import { Container } from "@/components/shared/container/container";
+import { Typography } from "@/components/ui/typography";
 
 export function CountryGrid() {
   const [query, setQuery] = useState("");
@@ -22,9 +23,11 @@ export function CountryGrid() {
       <Container>
         {/* Section header */}
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-2 type-b2-semi text-neutral-700">
+          <div className="flex items-center gap-2">
             <Flame className="h-4 w-4 text-brand-600" />
-            Trending Countries
+            <Typography variant="b2Semi" color="text.secondary" as="span">
+              Trending Countries
+            </Typography>
           </div>
 
           {/* Search */}
@@ -47,9 +50,11 @@ export function CountryGrid() {
             ))}
           </div>
         ) : (
-          <div className="py-20 text-center text-neutral-400">
-            <Search className="mx-auto mb-3 h-8 w-8 opacity-40" />
-            <p className="type-b2-reg">No countries found for &quot;{query}&quot;</p>
+          <div className="py-20 text-center">
+            <Search className="mx-auto mb-3 h-8 w-8 text-neutral-400 opacity-40" />
+            <Typography variant="b2Regular" color="text.disabled">
+              No countries found for &quot;{query}&quot;
+            </Typography>
           </div>
         )}
       </Container>

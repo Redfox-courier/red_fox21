@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Package } from "lucide-react";
+import { Typography } from "@/components/ui/typography";
 
 export const metadata: Metadata = {
   title: { template: "%s | RedFox Courier", default: "Auth | RedFox Courier" },
@@ -16,14 +17,16 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           REDFOX COURIER
         </Link>
         <div>
-          <blockquote className="type-h2-bold leading-snug mb-4">
+          <Typography variant="h2Bold" as="blockquote" className="leading-snug mb-4 text-white-100">
             &ldquo;Delivering trust, one package at a time.&rdquo;
-          </blockquote>
-          <p className="text-white-100/70 type-b1-reg">
+          </Typography>
+          <Typography variant="b1Regular" as="p" className="text-white-100/70">
             Join 50,000+ businesses shipping internationally with RedFox.
-          </p>
+          </Typography>
         </div>
-        <p className="text-white-100/50 type-c1-med">© 2026 RedFox Courier. All rights reserved.</p>
+        <Typography variant="c1Medium" as="p" className="text-white-100/50">
+          © 2026 RedFox Courier. All rights reserved.
+        </Typography>
       </div>
 
       {/* Right panel — form */}

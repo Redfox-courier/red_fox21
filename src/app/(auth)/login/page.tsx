@@ -7,6 +7,7 @@ import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { useAuthStore } from "@/domains/user/store/auth.store";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Typography } from "@/components/ui/typography";
 import { cn } from "@/core/utils/cn";
 
 export default function LoginPage() {
@@ -27,10 +28,10 @@ export default function LoginPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="type-h2-bold text-neutral-900">Welcome back</h1>
-        <p className="mt-1 type-b2-reg text-neutral-500">
+        <Typography variant="h2Bold" color="text.primary">Welcome back</Typography>
+        <Typography variant="b2Regular" color="text.hint" className="mt-1">
           Sign in to your RedFox account to continue.
-        </p>
+        </Typography>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -41,9 +42,9 @@ export default function LoginPage() {
         )}
 
         <div className="space-y-1.5">
-          <label htmlFor="email" className="type-b2-semi text-neutral-700">
+          <Typography variant="b2Semi" color="text.secondary" as="label" htmlFor="email">
             Email address
-          </label>
+          </Typography>
           <Input
             id="email"
             type="email"
@@ -56,9 +57,9 @@ export default function LoginPage() {
         </div>
 
         <div className="space-y-1.5">
-          <label htmlFor="password" className="type-b2-semi text-neutral-700">
+          <Typography variant="b2Semi" color="text.secondary" as="label" htmlFor="password">
             Password
-          </label>
+          </Typography>
           <div className="relative">
             <Input
               id="password"
@@ -98,19 +99,19 @@ export default function LoginPage() {
         </Button>
       </form>
 
-      <p className="text-center type-b2-reg text-neutral-500">
+      <Typography variant="b2Regular" color="text.hint" className="text-center">
         Don&apos;t have an account?{" "}
         <Link href="/register" className="type-b2-semi text-brand-600 hover:underline">
           Create one
         </Link>
-      </p>
+      </Typography>
 
       {/* Dev hint */}
       <div className="rounded-xl bg-neutral-100 p-4 space-y-1">
-        <p className="type-b3-semi text-neutral-600">Mock credentials</p>
-        <p className="type-b3-reg text-neutral-500">admin@redfoxcourier.com / any 6+ char password</p>
-        <p className="type-b3-reg text-neutral-500">operator@redfoxcourier.com / any 6+ char password</p>
-        <p className="type-b3-reg text-neutral-500">customer@example.com / any 6+ char password</p>
+        <Typography variant="b3Semi" color="text.secondary">Mock credentials</Typography>
+        <Typography variant="b3Regular" color="text.hint">admin@redfoxcourier.com / any 6+ char password</Typography>
+        <Typography variant="b3Regular" color="text.hint">operator@redfoxcourier.com / any 6+ char password</Typography>
+        <Typography variant="b3Regular" color="text.hint">customer@example.com / any 6+ char password</Typography>
       </div>
     </div>
   );

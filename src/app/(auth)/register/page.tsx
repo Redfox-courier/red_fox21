@@ -7,6 +7,7 @@ import { Loader2 } from "lucide-react";
 import { useAuthStore } from "@/domains/user/store/auth.store";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Typography } from "@/components/ui/typography";
 import { cn } from "@/core/utils/cn";
 
 export default function RegisterPage() {
@@ -34,10 +35,10 @@ export default function RegisterPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="type-h2-bold text-neutral-900">Create your account</h1>
-        <p className="mt-1 type-b2-reg text-neutral-500">
+        <Typography variant="h2Bold" color="text.primary">Create your account</Typography>
+        <Typography variant="b2Regular" color="text.hint" className="mt-1">
           Start shipping internationally in minutes.
-        </p>
+        </Typography>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -54,9 +55,9 @@ export default function RegisterPage() {
           { name: "companyName", label: "Company name (optional)", type: "text", placeholder: "Mehta Exports" },
         ].map((field) => (
           <div key={field.name} className="space-y-1.5">
-            <label htmlFor={field.name} className="type-b2-semi text-neutral-700">
+            <Typography variant="b2Semi" color="text.secondary" as="label" htmlFor={field.name}>
               {field.label}
-            </label>
+            </Typography>
             <Input
               id={field.name}
               name={field.name}
@@ -89,12 +90,12 @@ export default function RegisterPage() {
         </Button>
       </form>
 
-      <p className="text-center type-b2-reg text-neutral-500">
+      <Typography variant="b2Regular" color="text.hint" className="text-center">
         Already have an account?{" "}
         <Link href="/login" className="type-b2-semi text-brand-600 hover:underline">
           Sign in
         </Link>
-      </p>
+      </Typography>
     </div>
   );
 }

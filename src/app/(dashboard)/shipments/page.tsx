@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { Package, ArrowUpRight, Loader2 } from "lucide-react";
 import { useShipmentStore } from "@/domains/shipment/store/shipment.store";
+import { Typography } from "@/components/ui/typography";
 import { cn } from "@/core/utils/cn";
 
 const STATUS_STYLES: Record<string, { label: string; className: string }> = {
@@ -25,7 +26,7 @@ export default function ShipmentsPage() {
   return (
     <div className="p-8">
       <div className="mb-8 flex items-center justify-between">
-        <h1 className="type-h2-bold text-neutral-900">Shipments</h1>
+        <Typography variant="h2Bold" color="text.primary">Shipments</Typography>
         <button className="flex items-center gap-2 rounded-xl bg-brand-600 px-4 py-2.5 type-b2-semi text-white-100 hover:bg-brand-700 transition-colors">
           <Package className="h-4 w-4" />
           New Shipment
