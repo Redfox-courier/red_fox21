@@ -151,7 +151,6 @@ export function Footer() {
                 <ArrowUpRight className="h-6 w-6 text-neutral-400" />
               </div>
               <div className="flex items-start gap-2">
-                <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0 text-brand-500" />
                 <Typography variant="c1Medium" color="text.disabled" as="p" className="leading-relaxed">
                   Unit no. 404, Felix Tower,<br />
                   LBS Marg, Dadar, Asalfa,<br />
@@ -164,24 +163,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-neutral-800 pt-6">
-          <div className="flex items-center gap-4">
-            {["ok.ru", "vk.com", "facebook", "telegram", "instagram"].map((icon) => (
-              <a
-                key={icon}
-                href="#"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-700 type-c2-semi text-neutral-400 hover:border-brand-600 hover:text-brand-500 transition-colors"
-                aria-label={icon}
-              >
-                {icon[0].toUpperCase()}
-              </a>
-            ))}
-          </div>
-          <Typography variant="c2Medium" color="text.hint">
-            © 2021 – Copyright · All rights reserved
-          </Typography>
-        </div>
       </Container>
     </footer>
   );
