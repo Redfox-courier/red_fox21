@@ -9,7 +9,6 @@ import {
   CreditCard,
   Settings,
   LogOut,
-  Package2,
 } from "lucide-react";
 import { cn } from "@/core/utils/cn";
 import { useAuthStore } from "@/domains/user/store/auth.store";
@@ -29,11 +28,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const { user, logout } = useAuthStore();
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-neutral-100">
       {/* Sidebar */}
-      <aside className="sticky top-0 flex h-screen w-60 shrink-0 flex-col border-r border-gray-200 bg-white">
+      <aside className="sticky top-0 flex h-screen w-60 shrink-0 flex-col border-r border-neutral-200 bg-white-100">
         {/* Logo */}
-        <div className="flex h-16 items-center border-b border-gray-100 px-6">
+        <div className="flex h-16 items-center border-b border-neutral-200 px-6">
           <Link href={ROUTES.HOME} className="flex items-center shrink-0">
             <Image
               src="/Home/REDFOXCOURIER LOGO.svg"
@@ -55,13 +54,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 key={href}
                 href={href as never}
                 className={cn(
-                  "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors",
+                  "flex items-center gap-3 rounded-xl px-3 py-2.5 type-b2-med transition-colors",
                   active
-                    ? "bg-[#FFF0EB] text-[#E84C14]"
-                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                    ? "bg-brand-100 text-brand-600"
+                    : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
                 )}
               >
-                <Icon className={cn("h-4 w-4", active ? "text-[#E84C14]" : "text-gray-400")} />
+                <Icon className={cn("h-4 w-4", active ? "text-brand-600" : "text-neutral-400")} />
                 {label}
               </Link>
             );
@@ -69,21 +68,21 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </nav>
 
         {/* User */}
-        <div className="border-t border-gray-100 p-4">
+        <div className="border-t border-neutral-200 p-4">
           {user && (
             <div className="mb-3 flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#E84C14] text-xs font-bold text-white">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-600 type-c1-semi text-white-100">
                 {user.name[0]}
               </div>
               <div className="min-w-0">
-                <p className="truncate text-xs font-semibold text-gray-900">{user.name}</p>
-                <p className="truncate text-[10px] text-gray-400 capitalize">{user.role}</p>
+                <p className="truncate type-b3-semi text-neutral-900">{user.name}</p>
+                <p className="truncate type-c2-med text-neutral-400 capitalize">{user.role}</p>
               </div>
             </div>
           )}
           <button
             onClick={logout}
-            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm text-gray-500 hover:bg-red-50 hover:text-red-600 transition-colors"
+            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 type-b2-reg text-neutral-500 hover:bg-error-100 hover:text-error-600 transition-colors"
           >
             <LogOut className="h-4 w-4" />
             Sign out

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <HeroSection destination="London" />
+      <HeroSection />
       <CountryGrid />
       <HowItWorks />
     </>

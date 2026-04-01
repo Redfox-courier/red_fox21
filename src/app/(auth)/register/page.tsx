@@ -34,15 +34,15 @@ export default function RegisterPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Create your account</h1>
-        <p className="mt-1 text-sm text-gray-500">
+        <h1 className="type-h2-bold text-neutral-900">Create your account</h1>
+        <p className="mt-1 type-b2-reg text-neutral-500">
           Start shipping internationally in minutes.
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {error && (
-          <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-600">
+          <div className="rounded-lg bg-error-100 border border-error-300 px-4 py-3 type-b2-reg text-error-600">
             {error}
           </div>
         )}
@@ -54,7 +54,7 @@ export default function RegisterPage() {
           { name: "companyName", label: "Company name (optional)", type: "text", placeholder: "Mehta Exports" },
         ].map((field) => (
           <div key={field.name} className="space-y-1.5">
-            <label htmlFor={field.name} className="text-sm font-medium text-gray-700">
+            <label htmlFor={field.name} className="type-b2-semi text-neutral-700">
               {field.label}
             </label>
             <Input
@@ -74,7 +74,7 @@ export default function RegisterPage() {
           type="submit"
           disabled={isLoading}
           className={cn(
-            "w-full h-11 rounded-xl bg-[#E84C14] hover:bg-[#d0430f] text-white font-semibold",
+            "w-full h-11 rounded-xl bg-brand-600 hover:bg-brand-700 text-white-100 type-b2-semi",
             isLoading && "opacity-70"
           )}
         >
@@ -89,9 +89,9 @@ export default function RegisterPage() {
         </Button>
       </form>
 
-      <p className="text-center text-sm text-gray-500">
+      <p className="text-center type-b2-reg text-neutral-500">
         Already have an account?{" "}
-        <Link href="/login" className="font-semibold text-[#E84C14] hover:underline">
+        <Link href="/login" className="type-b2-semi text-brand-600 hover:underline">
           Sign in
         </Link>
       </p>

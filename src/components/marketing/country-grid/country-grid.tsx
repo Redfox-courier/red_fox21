@@ -22,19 +22,19 @@ export function CountryGrid() {
       <Container>
         {/* Section header */}
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-            <Flame className="h-4 w-4 text-[#E84C14]" />
+          <div className="flex items-center gap-2 type-b2-semi text-neutral-700">
+            <Flame className="h-4 w-4 text-brand-600" />
             Trending Countries
           </div>
 
           {/* Search */}
           <div className="relative w-full sm:w-72">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400 pointer-events-none" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400 pointer-events-none" />
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Enter destination country or city"
-              className="h-10 pl-9 pr-4 rounded-full border-gray-200 bg-gray-50 text-sm focus-visible:ring-[#E84C14]/30 focus-visible:border-[#E84C14]"
+              className="h-10 pl-9 pr-4 rounded-full border-neutral-200 bg-neutral-100 type-b2-reg focus-visible:ring-brand-600/30 focus-visible:border-brand-600"
             />
           </div>
         </div>
@@ -47,9 +47,9 @@ export function CountryGrid() {
             ))}
           </div>
         ) : (
-          <div className="py-20 text-center text-gray-400">
+          <div className="py-20 text-center text-neutral-400">
             <Search className="mx-auto mb-3 h-8 w-8 opacity-40" />
-            <p className="text-sm">No countries found for &quot;{query}&quot;</p>
+            <p className="type-b2-reg">No countries found for &quot;{query}&quot;</p>
           </div>
         )}
       </Container>

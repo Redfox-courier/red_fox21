@@ -2,67 +2,223 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/* ─── RedFox Design Tokens ───────────────────────────────── */
-
 @custom-variant dark (&:is(.dark *));
 
+/* ════════════════════════════════════════════════════════════
+   REDFOX DESIGN SYSTEM — Tailwind v4 Theme Tokens
+   All tokens in @theme auto-generate utility classes:
+     --color-primary-500  →  bg-primary-500 / text-primary-500 / border-primary-500
+     --text-h1            →  text-h1
+   ════════════════════════════════════════════════════════════ */
+
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
+
+  /* ── shadcn semantic aliases (keep as-is) ─────────────── */
+  --color-background:              var(--background);
+  --color-foreground:              var(--foreground);
+  --color-card:                    var(--card);
+  --color-card-foreground:         var(--card-foreground);
+  --color-popover:                 var(--popover);
+  --color-popover-foreground:      var(--popover-foreground);
+  --color-primary:                 var(--primary);
+  --color-primary-foreground:      var(--primary-foreground);
+  --color-secondary:               var(--secondary);
+  --color-secondary-foreground:    var(--secondary-foreground);
+  --color-muted:                   var(--muted);
+  --color-muted-foreground:        var(--muted-foreground);
+  --color-accent:                  var(--accent);
+  --color-accent-foreground:       var(--accent-foreground);
+  --color-destructive:             var(--destructive);
+  --color-border:                  var(--border);
+  --color-input:                   var(--input);
+  --color-ring:                    var(--ring);
+  --color-sidebar:                 var(--sidebar);
+  --color-sidebar-foreground:      var(--sidebar-foreground);
+  --color-sidebar-primary:         var(--sidebar-primary);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
+  --color-sidebar-accent:          var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border:          var(--sidebar-border);
+  --color-sidebar-ring:            var(--sidebar-ring);
+  --color-chart-1:                 var(--chart-1);
+  --color-chart-2:                 var(--chart-2);
+  --color-chart-3:                 var(--chart-3);
+  --color-chart-4:                 var(--chart-4);
+  --color-chart-5:                 var(--chart-5);
+
+  /* ── Radius scale ─────────────────────────────────────── */
+  --radius-sm:  calc(var(--radius) * 0.6);
+  --radius-md:  calc(var(--radius) * 0.8);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* ════════════════════════════════════════════════════════
+     BRAND COLOR PALETTE
+     ════════════════════════════════════════════════════════ */
+
+  /* ── Primary — Brand Orange/Red ───────────────────────── */
+  --color-brand-100: #FFF4EF;
+  --color-brand-200: #FFEEE8;
+  --color-brand-300: #F0B0A5;
+  --color-brand-400: #EB744A;
+  --color-brand-500: #F3551E;   /* primary.light  */
+  --color-brand-600: #C1421B;   /* primary.main   */
+  --color-brand-700: #8A3114;   /* primary.dark   */
+  --color-brand-800: #572D0E;
+  --color-brand-900: #2D1309;
+
+  /* Semantic aliases for the brand */
+  --color-brand:       var(--color-brand-600);
+  --color-brand-light: var(--color-brand-500);
+  --color-brand-dark:  var(--color-brand-700);
+
+  /* ── Gray / Neutral ───────────────────────────────────── */
+  --color-neutral-100: #F3F3F3;
+  --color-neutral-200: #E3E4E6;
+  --color-neutral-300: #B8B9BB;
+  --color-neutral-400: #A2A3A5;   /* secondary.light */
+  --color-neutral-500: #8D8E92;   /* secondary.main  */
+  --color-neutral-600: #6C6E72;   /* secondary.dark  */
+  --color-neutral-700: #505053;
+  --color-neutral-800: #343537;
+  --color-neutral-900: #1C1C1D;
+
+  /* ── Info — Yellow/Amber ──────────────────────────────── */
+  --color-info-100: #FFFBEC;
+  --color-info-200: #FEF4E3;
+  --color-info-300: #FDE9C3;
+  --color-info-400: #FCCEA5;    /* info.light */
+  --color-info-500: #FBC337;    /* info.main  */
+  --color-info-600: #BC942A;    /* info.dark  */
+  --color-info-700: #88681E;
+  --color-info-800: #574413;
+  --color-info-900: #2E240A;
+
+  /* ── Success — Green ──────────────────────────────────── */
+  --color-success-100: #EAF8ED;
+  --color-success-200: #B0E5B9;
+  --color-success-300: #80DA9C;
+  --color-success-400: #6ECF7E;   /* success.light */
+  --color-success-500: #52C361;   /* success.main  */
+  --color-success-600: #3FA148;   /* success.dark  */
+  --color-success-700: #2E7337;
+  --color-success-800: #1F4A25;
+  --color-success-900: #122715;
+
+  /* ── Warning — Warm Orange ────────────────────────────── */
+  --color-warning-100: #FFF8D9;
+  --color-warning-200: #FFE9B3;
+  --color-warning-300: #FFD18C;
+  --color-warning-400: #FFB969;   /* warning.light */
+  --color-warning-500: #FF9F43;   /* warning.main  */
+  --color-warning-600: #E68F3C;   /* warning.dark  */
+  --color-warning-700: #D98739;
+  --color-warning-800: #CC7F36;
+  --color-warning-900: #BF7732;
+
+  /* ── Error — Red ──────────────────────────────────────── */
+  --color-error-100: #FCEBE9;
+  --color-error-200: #F9D7D4;
+  --color-error-300: #EF8A7E;
+  --color-error-400: #EA6A59;
+  --color-error-500: #E64E38;   /* error.light */
+  --color-error-600: #D3331B;   /* error.main  */
+  --color-error-700: #972514;   /* error.dark  */
+  --color-error-800: #631A0F;
+  --color-error-900: #300F0A;
+
+  /* ── Pure White Scale ─────────────────────────────────── */
+  --color-white-100: #FFFFFF;   /* main */
+  --color-white-200: #FCFAFA;
+  --color-white-300: #FAF8F8;
+  --color-white-400: #F8F6F6;
+
+  /* ── Pure Black Scale ─────────────────────────────────── */
+  --color-black-100: #1C1C1C;   /* main */
+  --color-black-200: #3A3A3A;
+  --color-black-300: #585858;
+  --color-black-400: #6C6C6C;
+  --color-black-500: #8A8A8A;
+
+  /* ════════════════════════════════════════════════════════
+     ICON SIZE SCALE
+     Optically paired with the typography scale above.
+     xs  → caption (C1/C2)
+     sm  → body small (B3/B4)
+     md  → body / title (B1/B2, T4)   ← default
+     lg  → title large (T1/T2)
+     xl  → headline (H3/H2)
+     2xl → headline large (H1)
+     3xl → display / empty states
+     ════════════════════════════════════════════════════════ */
+  --icon-xs:  0.75rem;    /* 12px */
+  --icon-sm:  0.875rem;   /* 14px */
+  --icon-md:  1rem;       /* 16px */
+  --icon-lg:  1.25rem;    /* 20px */
+  --icon-xl:  1.5rem;     /* 24px */
+  --icon-2xl: 2rem;       /* 32px */
+  --icon-3xl: 2.5rem;     /* 40px */
+
+  /* ════════════════════════════════════════════════════════
+     TYPOGRAPHY SCALE  (DM Sans)
+     token naming: --text-{role}  →  Tailwind utility: text-{role}
+     line-height: --text-{role}--line-height (v4 tuple syntax)
+     ════════════════════════════════════════════════════════ */
+
+  --font-sans:    var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+
+  /* Display */
+  --text-display-lg:                  3.5rem;    /* 56px */
+  --text-display-lg--line-height:     4.55rem;   /* 72.8px */
+  --text-display-md:                  2.75rem;   /* 44px */
+  --text-display-md--line-height:     3.575rem;  /* 57.2px */
+  --text-display-sm:                  2.25rem;   /* 36px */
+  --text-display-sm--line-height:     2.925rem;  /* 46.8px */
+
+  /* Headline */
+  --text-h1:                          2rem;      /* 32px */
+  --text-h1--line-height:             2.6rem;    /* 41.6px */
+  --text-h2:                          1.75rem;   /* 28px */
+  --text-h2--line-height:             2.275rem;  /* 36.4px */
+  --text-h3:                          1.5rem;    /* 24px */
+  --text-h3--line-height:             1.963rem;  /* 31.4px */
+
+  /* Title */
+  --text-t1:                          1.375rem;  /* 22px */
+  --text-t1--line-height:             1.788rem;  /* 28.6px */
+  --text-t2:                          1.125rem;  /* 18px */
+  --text-t2--line-height:             1.463rem;  /* 23.4px */
+  --text-t3:                          1rem;      /* 16px */
+  --text-t3--line-height:             1.3rem;    /* 20.8px */
+  --text-t4:                          0.875rem;  /* 14px */
+  --text-t4--line-height:             1.138rem;  /* 18.2px */
+
+  /* Body */
+  --text-b1:                          1rem;      /* 16px */
+  --text-b1--line-height:             1.4rem;    /* 22.4px */
+  --text-b2:                          0.875rem;  /* 14px */
+  --text-b2--line-height:             1.225rem;  /* 19.6px */
+  --text-b3:                          0.75rem;   /* 12px */
+  --text-b3--line-height:             1.05rem;   /* 16.8px */
+  --text-b4:                          0.625rem;  /* 10px */
+  --text-b4--line-height:             0.813rem;  /* 13px */
+
+  /* Caption */
+  --text-c1:                          0.75rem;   /* 12px */
+  --text-c1--line-height:             1.125rem;  /* 18px */
+  --text-c2:                          0.625rem;  /* 10px */
+  --text-c2--line-height:             0.938rem;  /* 15px */
 }
 
+/* ════════════════════════════════════════════════════════════
+   shadcn BASE CSS VARS (light mode)
+   ════════════════════════════════════════════════════════════ */
 :root {
-  /* Brand */
-  --rf-orange: #E84C14;
-  --rf-orange-dark: #d0430f;
-  --rf-orange-light: #FFF0EB;
-
-  /* Spacing scale */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -131,24 +287,114 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ════════════════════════════════════════════════════════════
+   BASE LAYER
+   ════════════════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════════════════════
+   KEYFRAMES
+   ════════════════════════════════════════════════════════════ */
+@keyframes destinationIn {
+  0%   { opacity: 0; transform: translateY(100%) skewY(4deg); clip-path: inset(0 0 0 0); }
+  100% { opacity: 1; transform: translateY(0)    skewY(0deg); clip-path: inset(0 0 0 0); }
+}
+@keyframes destinationOut {
+  0%   { opacity: 1; transform: translateY(0)     skewY(0deg);  }
+  100% { opacity: 0; transform: translateY(-80%)  skewY(-3deg); }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
     font-feature-settings: "cv11", "ss01";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   html {
-    @apply font-sans;
     scroll-behavior: smooth;
   }
 }
 
-@layer utilities {
-  /* Country card gradient overlay */
+/* ════════════════════════════════════════════════════════════
+   TYPOGRAPHY COMPONENT CLASSES
+   Usage: <h1 className="type-display-lg"> or <p className="type-b2-reg">
+   These combine font-size + line-height + weight into one class.
+   ════════════════════════════════════════════════════════════ */
+@layer components {
+
+  /* ── Display ─────────────────────────────────────────── */
+  .type-display-lg {
+    font-size: var(--text-display-lg);
+    line-height: var(--text-display-lg--line-height);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  .type-display-md {
+    font-size: var(--text-display-md);
+    line-height: var(--text-display-md--line-height);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  .type-display-sm {
+    font-size: var(--text-display-sm);
+    line-height: var(--text-display-sm--line-height);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  /* ── Headline ─────────────────────────────────────────── */
+  .type-h1-bold { font-size: var(--text-h1); line-height: var(--text-h1--line-height); font-weight: 700; }
+  .type-h1-semi { font-size: var(--text-h1); line-height: var(--text-h1--line-height); font-weight: 600; }
+  .type-h2-bold { font-size: var(--text-h2); line-height: var(--text-h2--line-height); font-weight: 700; }
+  .type-h2-semi { font-size: var(--text-h2); line-height: var(--text-h2--line-height); font-weight: 600; }
+  .type-h3-bold { font-size: var(--text-h3); line-height: var(--text-h3--line-height); font-weight: 700; }
+  .type-h3-semi { font-size: var(--text-h3); line-height: var(--text-h3--line-height); font-weight: 600; }
+
+  /* ── Title ────────────────────────────────────────────── */
+  .type-t1-bold { font-size: var(--text-t1); line-height: var(--text-t1--line-height); font-weight: 700; }
+  .type-t1-semi { font-size: var(--text-t1); line-height: var(--text-t1--line-height); font-weight: 600; }
+  .type-t1-med  { font-size: var(--text-t1); line-height: var(--text-t1--line-height); font-weight: 500; }
+  .type-t2-bold { font-size: var(--text-t2); line-height: var(--text-t2--line-height); font-weight: 700; }
+  .type-t2-semi { font-size: var(--text-t2); line-height: var(--text-t2--line-height); font-weight: 600; }
+  .type-t2-med  { font-size: var(--text-t2); line-height: var(--text-t2--line-height); font-weight: 500; }
+  .type-t3-bold { font-size: var(--text-t3); line-height: var(--text-t3--line-height); font-weight: 700; }
+  .type-t3-semi { font-size: var(--text-t3); line-height: var(--text-t3--line-height); font-weight: 600; }
+  .type-t3-med  { font-size: var(--text-t3); line-height: var(--text-t3--line-height); font-weight: 500; }
+  .type-t4-bold { font-size: var(--text-t4); line-height: var(--text-t4--line-height); font-weight: 700; }
+  .type-t4-semi { font-size: var(--text-t4); line-height: var(--text-t4--line-height); font-weight: 600; }
+  .type-t4-med  { font-size: var(--text-t4); line-height: var(--text-t4--line-height); font-weight: 500; }
+
+  /* ── Body ─────────────────────────────────────────────── */
+  .type-b1-semi { font-size: var(--text-b1); line-height: var(--text-b1--line-height); font-weight: 600; }
+  .type-b1-med  { font-size: var(--text-b1); line-height: var(--text-b1--line-height); font-weight: 500; }
+  .type-b1-reg  { font-size: var(--text-b1); line-height: var(--text-b1--line-height); font-weight: 400; }
+  .type-b2-semi { font-size: var(--text-b2); line-height: var(--text-b2--line-height); font-weight: 600; }
+  .type-b2-med  { font-size: var(--text-b2); line-height: var(--text-b2--line-height); font-weight: 500; }
+  .type-b2-reg  { font-size: var(--text-b2); line-height: var(--text-b2--line-height); font-weight: 400; }
+  .type-b3-semi { font-size: var(--text-b3); line-height: var(--text-b3--line-height); font-weight: 600; }
+  .type-b3-med  { font-size: var(--text-b3); line-height: var(--text-b3--line-height); font-weight: 500; }
+  .type-b3-reg  { font-size: var(--text-b3); line-height: var(--text-b3--line-height); font-weight: 400; }
+  .type-b4-semi { font-size: var(--text-b4); line-height: var(--text-b4--line-height); font-weight: 600; }
+  .type-b4-med  { font-size: var(--text-b4); line-height: var(--text-b4--line-height); font-weight: 500; }
+
+  /* ── Caption ──────────────────────────────────────────── */
+  .type-c1-semi { font-size: var(--text-c1); line-height: var(--text-c1--line-height); font-weight: 600; }
+  .type-c1-med  { font-size: var(--text-c1); line-height: var(--text-c1--line-height); font-weight: 500; }
+  .type-c2-semi { font-size: var(--text-c2); line-height: var(--text-c2--line-height); font-weight: 600; }
+  .type-c2-med  { font-size: var(--text-c2); line-height: var(--text-c2--line-height); font-weight: 500; }
+
+  /* ── Hero destination text animation ─────────────────── */
+  .destination-enter {
+    animation: destinationIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .destination-exit {
+    animation: destinationOut 0.4s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+  }
+
+  /* ── Gradient overlay — country cards ─────────────────── */
   .rf-card-overlay {
     background: linear-gradient(
       to top,
@@ -157,9 +403,4 @@
       transparent 100%
     );
   }
-
-  /* Orange brand text */
-  .text-rf-orange { color: var(--rf-orange); }
-  .bg-rf-orange { background-color: var(--rf-orange); }
-  .bg-rf-orange-light { background-color: var(--rf-orange-light); }
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import WebhookIcon from "@mui/icons-material/Webhook";
+import { Workflow } from "lucide-react";
 import { cn } from "@/core/utils/cn";
 import { Container } from "@/components/shared/container/container";
 
@@ -51,7 +51,7 @@ function StepCard({ step }: StepCardProps) {
       )}
     >
       {/* Image area */}
-      <div className="relative w-full h-[322px] bg-[#FFF7F5]">
+      <div className="relative w-full h-[322px] bg-brand-100">
         <Image
           src={step.image}
           alt={step.title}
@@ -62,10 +62,10 @@ function StepCard({ step }: StepCardProps) {
 
       {/* Text area */}
       <div className="p-6">
-        <h3 className="text-base font-bold text-gray-900 mb-1.5">
+        <h3 className="type-t3-bold text-neutral-900 mb-1.5">
           {step.title}
         </h3>
-        <p className="text-sm text-gray-500 leading-relaxed">
+        <p className="type-b2-reg text-neutral-500">
           {step.description}
         </p>
       </div>
@@ -85,27 +85,11 @@ export function HowItWorks() {
       <Container>
         {/* Section label */}
         <div className="mb-12 flex items-center justify-center">
-          <div
-            className="
-              inline-flex items-center gap-2
-              rounded-[40px]
-              border border-[#FFEEE8]
-              bg-[#FFF7F5]
-              px-4 py-1.5
-            "
-          >
-            <span
-              className="
-                flex h-6 w-6 items-center justify-center
-                rounded-full
-                border border-[#FDBDA5]
-                bg-[#E84C14]/10
-              "
-            >
-              <WebhookIcon sx={{ fontSize: 14, color: "#E84C14" }} />
+          <div className="inline-flex items-center gap-2 rounded-[40px] border border-brand-200 bg-brand-100 px-4 py-1.5">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-brand-300 bg-brand-600/10">
+              <Workflow className="h-3.5 w-3.5 text-brand-600" />
             </span>
-
-            <span className="text-sm font-semibold text-gray-700">
+            <span className="type-b2-semi text-neutral-700">
               How RedFoxCourier works
             </span>
           </div>

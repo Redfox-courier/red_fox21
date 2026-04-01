@@ -27,21 +27,21 @@ export default function LoginPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
-        <p className="mt-1 text-sm text-gray-500">
+        <h1 className="type-h2-bold text-neutral-900">Welcome back</h1>
+        <p className="mt-1 type-b2-reg text-neutral-500">
           Sign in to your RedFox account to continue.
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {error && (
-          <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-600">
+          <div className="rounded-lg bg-error-100 border border-error-300 px-4 py-3 type-b2-reg text-error-600">
             {error}
           </div>
         )}
 
         <div className="space-y-1.5">
-          <label htmlFor="email" className="text-sm font-medium text-gray-700">
+          <label htmlFor="email" className="type-b2-semi text-neutral-700">
             Email address
           </label>
           <Input
@@ -56,7 +56,7 @@ export default function LoginPage() {
         </div>
 
         <div className="space-y-1.5">
-          <label htmlFor="password" className="text-sm font-medium text-gray-700">
+          <label htmlFor="password" className="type-b2-semi text-neutral-700">
             Password
           </label>
           <div className="relative">
@@ -71,7 +71,7 @@ export default function LoginPage() {
             />
             <button
               type="button"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600"
               onClick={() => setShowPassword((v) => !v)}
             >
               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -83,7 +83,7 @@ export default function LoginPage() {
           type="submit"
           disabled={isLoading}
           className={cn(
-            "w-full h-11 rounded-xl bg-[#E84C14] hover:bg-[#d0430f] text-white font-semibold",
+            "w-full h-11 rounded-xl bg-brand-600 hover:bg-brand-700 text-white-100 type-b2-semi",
             isLoading && "opacity-70"
           )}
         >
@@ -98,19 +98,19 @@ export default function LoginPage() {
         </Button>
       </form>
 
-      <p className="text-center text-sm text-gray-500">
+      <p className="text-center type-b2-reg text-neutral-500">
         Don&apos;t have an account?{" "}
-        <Link href="/register" className="font-semibold text-[#E84C14] hover:underline">
+        <Link href="/register" className="type-b2-semi text-brand-600 hover:underline">
           Create one
         </Link>
       </p>
 
       {/* Dev hint */}
-      <div className="rounded-xl bg-gray-100 p-4 text-xs text-gray-500 space-y-1">
-        <p className="font-semibold text-gray-600">Mock credentials</p>
-        <p>admin@redfoxcourier.com / any 6+ char password</p>
-        <p>operator@redfoxcourier.com / any 6+ char password</p>
-        <p>customer@example.com / any 6+ char password</p>
+      <div className="rounded-xl bg-neutral-100 p-4 space-y-1">
+        <p className="type-b3-semi text-neutral-600">Mock credentials</p>
+        <p className="type-b3-reg text-neutral-500">admin@redfoxcourier.com / any 6+ char password</p>
+        <p className="type-b3-reg text-neutral-500">operator@redfoxcourier.com / any 6+ char password</p>
+        <p className="type-b3-reg text-neutral-500">customer@example.com / any 6+ char password</p>
       </div>
     </div>
   );
