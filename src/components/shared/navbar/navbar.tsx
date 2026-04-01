@@ -92,7 +92,8 @@ export function Navbar() {
             </Link>
             <Link
               href={ROUTES.TRACKING}
-              className="inline-flex items-center gap-2 h-10 rounded-full bg-brand-600 hover:bg-brand-700 text-white-100 px-5 shadow-sm transition-colors ring-1 ring-inset ring-white-100/25"
+              className="inline-flex items-center gap-2 h-10 rounded-full bg-brand-600 hover:bg-brand-700 text-white-100 px-5 
+              inset-shadow-sm inset-shadow-white/90 transition-colors ring-1 ring-inset ring-white-100/25"
             >
               <Typography variant="b2Semi" color="text.white" as="span">
                 Track Order

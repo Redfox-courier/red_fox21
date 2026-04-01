@@ -1,6 +1,6 @@
 "use client";
 
-import WebhookIcon from "@mui/icons-material/Webhook";
+import { Workflow } from "lucide-react";
 import { cn } from "@/core/utils/cn";
 import { Container } from "@/components/shared/container/container";
 import { Typography } from "@/components/ui/typography";
@@ -108,7 +108,7 @@ export function HowItWorks() {
                 bg-[#E84C14]/10
               "
             >
-              <WebhookIcon sx={{ fontSize: 14, color: "#E84C14" }} />
+              <Workflow className="h-3.5 w-3.5 text-brand-600" />
             </span>
             <Typography variant="b2Semi" color="text.secondary" as="span">
               How RedFoxCourier works
