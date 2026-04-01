@@ -8,6 +8,7 @@ import { NAV_LINKS } from "@/core/constants/navigation";
 import { ROUTES } from "@/core/constants/routes";
 import { Container } from "../container/container";
 import Image from "next/image";
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -84,8 +85,8 @@ export function Navbar() {
               href={ROUTES.TRACKING}
               className="inline-flex items-center gap-2 h-10 rounded-full bg-brand-600 hover:bg-brand-700 text-white-100 type-b2-semi px-5 shadow-sm transition-colors"
             >
-              <Package className="h-4 w-4" />
               Track Order
+              <LocalShippingOutlinedIcon />
             </Link>
           </div>
 
