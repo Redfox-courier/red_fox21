@@ -7,6 +7,7 @@ import { cn } from "@/core/utils/cn";
 import { NAV_LINKS } from "@/core/constants/navigation";
 import { ROUTES } from "@/core/constants/routes";
 import { Container } from "../container/container";
+import Image from "next/image";
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -17,16 +18,15 @@ export function Navbar() {
       <Container>
         <nav className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href={ROUTES.HOME} className="flex items-center gap-1.5 shrink-0">
-            <span className="text-xl font-black tracking-tight">
-              <span className="text-[#E84C14]">REDF</span>
-              <span className="relative inline-block">
-                <span className="text-[#E84C14]">
-                  <Package className="inline h-5 w-5 -mt-0.5" />
-                </span>
-              </span>
-              <span className="text-gray-900">X COURIER</span>
-            </span>
+          <Link href={ROUTES.HOME} className="flex items-center shrink-0">
+            <Image
+              src="/Home/REDFOXCOURIER LOGO.svg"
+              alt="Redfox Courier Logo"
+              width={160}
+              height={40}
+              priority
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -76,7 +76,7 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href={ROUTES.LOGIN}
-              className="text-sm font-medium text-gray-700 hover:text-[#E84C14] transition-colors"
+              className="text-sm font-medium text-orange-700 hover:text-[#E84C14] transition-colors"
             >
               Login
             </Link>
