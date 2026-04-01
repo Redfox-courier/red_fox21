@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { Workflow } from "lucide-react";
+import WebhookIcon from "@mui/icons-material/Webhook";
 import { cn } from "@/core/utils/cn";
 import { Container } from "@/components/shared/container/container";
 import { Typography } from "@/components/ui/typography";
@@ -45,21 +44,23 @@ function StepCard({ step }: StepCardProps) {
   return (
     <div
       className={cn(
-        "flex flex-col items-start",
-        "rounded-3xl bg-white overflow-hidden",
+        "flex flex-col",
+        "rounded-2xl bg-white overflow-hidden",
         "border border-white",
         "shadow-sm"
       )}
     >
       {/* Image area */}
-      <div className="relative w-full h-[322px] bg-brand-100">
-        <Image
+      <div className="w-full h-[412px] overflow-hidden">
+        <img
           src={step.image}
           alt={step.title}
-          fill
-          className="object-contain p-6"
+          className="w-full h-full object-contain"
         />
       </div>
+
+      {/* Divider */}
+      <div className="h-px bg-gray-100 mx-5" />
 
       {/* Text area */}
       <div className="p-6">
@@ -77,7 +78,7 @@ function StepCard({ step }: StepCardProps) {
 export function HowItWorks() {
   return (
     <section
-      className="py-16 bg-white"
+      className="py-12"
       style={{
         background:
           "radial-gradient(ellipse 30% 50% at 0% 50%, rgba(253,189,165,0.3) 0%, transparent 70%), radial-gradient(ellipse 30% 50% at 100% 50%, rgba(253,189,165,0.3) 0%, transparent 70%), #ffffff",
@@ -85,10 +86,25 @@ export function HowItWorks() {
     >
       <Container>
         {/* Section label */}
-        <div className="mb-12 flex items-center justify-center">
-          <div className="inline-flex items-center gap-2 rounded-[40px] border border-brand-200 bg-brand-100 px-4 py-1.5">
-            <span className="flex h-6 w-6 items-center justify-center rounded-full border border-brand-300 bg-brand-600/10">
-              <Workflow className="h-3.5 w-3.5 text-brand-600" />
+        <div className="mb-8 flex items-center justify-center">
+          <div
+            className="
+              inline-flex items-center gap-2
+              rounded-[40px]
+              border border-[#FFEEE8]
+              bg-[#FFF7F5]
+              px-4 py-1.5
+            "
+          >
+            <span
+              className="
+                flex h-6 w-6 items-center justify-center
+                rounded-full
+                border border-[#FDBDA5]
+                bg-[#E84C14]/10
+              "
+            >
+              <WebhookIcon sx={{ fontSize: 14, color: "#E84C14" }} />
             </span>
             <Typography variant="b2Semi" color="text.secondary" as="span">
               How RedFoxCourier works
@@ -96,7 +112,8 @@ export function HowItWorks() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+        {/* Cards — constrained max width and centered */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 gap-4 sm:grid-cols-3 pb-20">
           {STEPS.map((step) => (
             <StepCard key={step.id} step={step} />
           ))}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, MapPin, Package } from "lucide-react";
 import { Container } from "../container/container";
 import {
@@ -11,24 +12,26 @@ import { Typography } from "@/components/ui/typography";
 export function Footer() {
   return (
     <footer className="bg-neutral-900 text-neutral-300">
-      <Container className="py-14">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[220px_1fr_1fr_1fr_260px]">
+      <Container className="py-26">
+        <div className="grid grid-cols-1 gap-18 sm:grid-cols-2 lg:grid-cols-[220px_1fr_1fr_1fr_260px]">
 
           {/* Brand */}
-          <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-1 text-white-100">
-              <span className="type-t3-bold tracking-tight">
-                <span className="text-brand-500">REDF</span>
-                <Package className="inline h-4 w-4 text-brand-500 -mt-0.5" />
-                <span>X COURIER</span>
-              </span>
+          <div className="space-y-5">
+            <Link href="/">
+              <Image
+                src="/footer/Logo container.svg"
+                alt="RedFox Courier"
+                width={197}
+                height={24}
+                className="object-contain"
+              />
             </Link>
             <Typography variant="c1Medium" color="text.disabled" className="leading-relaxed">
               One-Stop-Shop for all of your logistics needs.
             </Typography>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-neutral-600 px-4 py-2 type-c1-med text-neutral-300 hover:border-brand-600 hover:text-brand-500 transition-colors"
+              className="inline-flex items-center gap-6 rounded-full border border-gray-600 px-13 py-2.5 text-xs font-large text-gray-300 hover:border-[#E84C14] hover:text-[#E84C14] transition-colors"
             >
               Get in touch
               <ArrowUpRight className="h-3.5 w-3.5" />
