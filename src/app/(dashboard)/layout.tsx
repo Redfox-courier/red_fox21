@@ -14,6 +14,7 @@ import {
 import { cn } from "@/core/utils/cn";
 import { useAuthStore } from "@/domains/user/store/auth.store";
 import { ROUTES } from "@/core/constants/routes";
+import Image from "next/image";
 
 const SIDEBAR_LINKS: { label: string; href: string; icon: React.ElementType }[] = [
   { label: "Dashboard", href: ROUTES.DASHBOARD, icon: LayoutDashboard },
@@ -33,10 +34,15 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <aside className="sticky top-0 flex h-screen w-60 shrink-0 flex-col border-r border-gray-200 bg-white">
         {/* Logo */}
         <div className="flex h-16 items-center border-b border-gray-100 px-6">
-          <Link href={ROUTES.HOME} className="flex items-center gap-1.5 text-base font-black">
-            <span className="text-[#E84C14]">REDF</span>
-            <Package2 className="h-4 w-4 text-[#E84C14]" />
-            <span className="text-gray-900">X</span>
+          <Link href={ROUTES.HOME} className="flex items-center shrink-0">
+            <Image
+              src="/Home/REDFOXCOURIER LOGO.svg"
+              alt="Redfox Courier Logo"
+              width={160}
+              height={40}
+              priority
+              className="h-10 w-auto"
+            />
           </Link>
         </div>
 
