@@ -36,6 +36,48 @@ export function Footer() {
               Get in touch
               <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
+
+             <div className="pt-10 flex items-end justify-between">
+  
+              {/* LEFT: Social Icons */}
+              <div className="space-y-3">
+                {/* Top */}
+                <div>
+                  <Link className="flex h-10 w-10 items-center justify-center rounded-full bg-white-100" href={""}>
+                    <Image src="/footer/Vector-1.svg" alt="" width={14} height={14} />
+                  </Link>
+                </div>
+
+                {/* Middle */}
+                <div className="flex gap-3">
+                  <Link className="flex h-10 w-10 items-center justify-center rounded-full bg-white-100" href={""}>
+                    <Image src="/footer/Vector-2.svg" alt="" width={14} height={14} />
+                  </Link>
+                  <Link className="flex h-10 w-10 items-center justify-center rounded-full bg-white-100" href={""}>
+                    <Image src="/footer/Vector-3.svg" alt="" width={14} height={14} />
+                  </Link>
+                </div>
+
+                {/* Bottom */}
+                <div className="flex gap-3">
+                  <Link className="flex h-10 w-10 items-center justify-center rounded-full bg-white-100" href={""}>
+                    <Image src="/footer/Vector-4.svg" alt="" width={14} height={14} />
+                  </Link>
+                  <Link className="flex h-10 w-10 items-center justify-center rounded-full bg-white-100" href={""}>
+                    <Image src="/footer/Vector.svg" alt="" width={14} height={14} />
+                  </Link>
+                </div>
+              </div>
+
+              {/* RIGHT: Copyright */}
+              <div className="text-xs text-neutral-400 leading-relaxed text-right">
+                <p>© 2021 — Copyright</p>
+                <p>All Rights reserved</p>
+              </div>
+
+            </div>
+
+
           </div>
 
           {/* Services */}
@@ -105,10 +147,8 @@ export function Footer() {
           <div>
             <div className="rounded-2xl border border-neutral-700 bg-black-200 p-5 space-y-3">
               <div className="flex items-center justify-between">
-                <Typography variant="t4Semi" color="text.white" as="h4">
-                  Get in touch
-                </Typography>
-                <ArrowUpRight className="h-4 w-4 text-neutral-400" />
+                <h4 className="type-t4-semi text-white-100">Get in touch</h4>
+                <ArrowUpRight className="h-6 w-6 text-neutral-400" />
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0 text-brand-500" />
