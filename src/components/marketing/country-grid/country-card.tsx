@@ -25,8 +25,14 @@ export function CountryCard({ data, className }: CountryCardProps) {
     <Link
       href={`/ship-to/${data.slug}` as never}
       className={cn(
-        "group relative flex flex-col justify-end overflow-hidden rounded-2xl",
-        "h-65 cursor-pointer",
+        "group relative flex flex-col justify-end overflow-hidden",
+        "w-[325.2px] h-[360px]", // ✅ Figma exact size
+        "rounded-[24px]", // closer to Figma than rounded-2xl
+        "cursor-pointer",
+        "group relative flex flex-col justify-end overflow-hidden",
+        "w-[325.2px] h-[360px]", // ✅ Figma exact size
+        "rounded-[24px]", // closer to Figma than rounded-2xl
+        "cursor-pointer",
         "shadow-[0_2px_12px_rgba(0,0,0,0.10)] transition-all duration-300",
         "hover:shadow-[0_8px_32px_rgba(193,66,27,0.18)] hover:-translate-y-1",
         className
@@ -38,12 +44,13 @@ export function CountryCard({ data, className }: CountryCardProps) {
         alt={`Ship to ${data.country}`}
         fill
         className="object-cover transition-transform duration-500 group-hover:scale-105"
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+        sizes="243px" // ✅ optimized for fixed width
       />
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
 
+      {/* Top badge */}
       {/* Top badge */}
       <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10">
         <span className="inline-flex items-center gap-1 rounded-full bg-white-100/90 backdrop-blur-sm px-2.5 py-1 type-c2-semi text-neutral-800 shadow-sm whitespace-nowrap">
