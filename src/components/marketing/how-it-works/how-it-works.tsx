@@ -80,8 +80,12 @@ export function HowItWorks() {
     <section
       className="py-12"
       style={{
-        background:
-          "radial-gradient(ellipse 30% 50% at 0% 50%, rgba(253,189,165,0.3) 0%, transparent 70%), radial-gradient(ellipse 30% 50% at 100% 50%, rgba(253,189,165,0.3) 0%, transparent 70%), #ffffff",
+        background: `
+  radial-gradient(ellipse 80% 50% at 50% 50%, #F3551E33 0%, transparent 70%),
+  radial-gradient(ellipse 60% 40% at 20% 50%, #F3551E1F 0%, transparent 70%),
+  radial-gradient(ellipse 60% 40% at 80% 50%, #F3551E1F 0%, transparent 70%),
+  #ffffff
+`
       }}
     >
       <Container>
