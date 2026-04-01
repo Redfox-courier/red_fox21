@@ -13,6 +13,7 @@ import {
 import { cn } from "@/core/utils/cn";
 import { useAuthStore } from "@/domains/user/store/auth.store";
 import { ROUTES } from "@/core/constants/routes";
+import { Typography } from "@/components/ui/typography";
 import Image from "next/image";
 
 const SIDEBAR_LINKS: { label: string; href: string; icon: React.ElementType }[] = [
@@ -75,8 +76,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 {user.name[0]}
               </div>
               <div className="min-w-0">
-                <p className="truncate type-b3-semi text-neutral-900">{user.name}</p>
-                <p className="truncate type-c2-med text-neutral-400 capitalize">{user.role}</p>
+                <Typography variant="b3Semi" color="text.primary" className="truncate">
+                  {user.name}
+                </Typography>
+                <Typography variant="c2Medium" color="text.disabled" className="truncate capitalize">
+                  {user.role}
+                </Typography>
               </div>
             </div>
           )}

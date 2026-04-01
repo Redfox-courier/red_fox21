@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Workflow } from "lucide-react";
 import { cn } from "@/core/utils/cn";
 import { Container } from "@/components/shared/container/container";
+import { Typography } from "@/components/ui/typography";
 
 interface Step {
   id: number;
@@ -62,12 +63,12 @@ function StepCard({ step }: StepCardProps) {
 
       {/* Text area */}
       <div className="p-6">
-        <h3 className="type-t3-bold text-neutral-900 mb-1.5">
+        <Typography variant="t3Bold" color="text.primary" as="h3" className="mb-1.5">
           {step.title}
-        </h3>
-        <p className="type-b2-reg text-neutral-500">
+        </Typography>
+        <Typography variant="b2Regular" color="text.hint">
           {step.description}
-        </p>
+        </Typography>
       </div>
     </div>
   );
@@ -89,9 +90,9 @@ export function HowItWorks() {
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-brand-300 bg-brand-600/10">
               <Workflow className="h-3.5 w-3.5 text-brand-600" />
             </span>
-            <span className="type-b2-semi text-neutral-700">
+            <Typography variant="b2Semi" color="text.secondary" as="span">
               How RedFoxCourier works
-            </span>
+            </Typography>
           </div>
         </div>
 

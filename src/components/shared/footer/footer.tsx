@@ -6,6 +6,7 @@ import {
   FOOTER_RESOURCES,
   FOOTER_SERVICES,
 } from "@/core/constants/navigation";
+import { Typography } from "@/components/ui/typography";
 
 export function Footer() {
   return (
@@ -22,9 +23,9 @@ export function Footer() {
                 <span>X COURIER</span>
               </span>
             </Link>
-            <p className="type-c1-med text-neutral-400 leading-relaxed">
+            <Typography variant="c1Medium" color="text.disabled" className="leading-relaxed">
               One-Stop-Shop for all of your logistics needs.
-            </p>
+            </Typography>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 rounded-full border border-neutral-600 px-4 py-2 type-c1-med text-neutral-300 hover:border-brand-600 hover:text-brand-500 transition-colors"
@@ -36,9 +37,14 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="mb-4 type-c1-semi uppercase tracking-widest text-neutral-400">
+            <Typography
+              variant="c1Semi"
+              color="text.disabled"
+              as="h4"
+              className="mb-4 uppercase tracking-widest"
+            >
               Our Services
-            </h4>
+            </Typography>
             <ul className="space-y-2.5">
               {FOOTER_SERVICES.map((s) => (
                 <li key={s}>
@@ -52,9 +58,14 @@ export function Footer() {
 
           {/* Industries */}
           <div>
-            <h4 className="mb-4 type-c1-semi uppercase tracking-widest text-neutral-400">
+            <Typography
+              variant="c1Semi"
+              color="text.disabled"
+              as="h4"
+              className="mb-4 uppercase tracking-widest"
+            >
               Industries
-            </h4>
+            </Typography>
             <ul className="space-y-2.5">
               {FOOTER_INDUSTRIES.map((s) => (
                 <li key={s}>
@@ -68,9 +79,14 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="mb-4 type-c1-semi uppercase tracking-widest text-neutral-400">
+            <Typography
+              variant="c1Semi"
+              color="text.disabled"
+              as="h4"
+              className="mb-4 uppercase tracking-widest"
+            >
               Resources
-            </h4>
+            </Typography>
             <ul className="space-y-2.5">
               {FOOTER_RESOURCES.map((r) => (
                 <li key={r.label}>
@@ -86,18 +102,20 @@ export function Footer() {
           <div>
             <div className="rounded-2xl border border-neutral-700 bg-black-200 p-5 space-y-3">
               <div className="flex items-center justify-between">
-                <h4 className="type-t4-semi text-white-100">Get in touch</h4>
+                <Typography variant="t4Semi" color="text.white" as="h4">
+                  Get in touch
+                </Typography>
                 <ArrowUpRight className="h-4 w-4 text-neutral-400" />
               </div>
-              <div className="flex items-start gap-2 type-c1-med text-neutral-400 leading-relaxed">
+              <div className="flex items-start gap-2">
                 <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0 text-brand-500" />
-                <p>
+                <Typography variant="c1Medium" color="text.disabled" as="p" className="leading-relaxed">
                   Unit no. 404, Felix Tower,<br />
                   LBS Marg, Dadar, Asalfa,<br />
                   Pandra, Sakinpur, Bhandup<br />
                   West, Mumbai,<br />
                   Maharashtra 400078
-                </p>
+                </Typography>
               </div>
             </div>
           </div>
@@ -117,9 +135,9 @@ export function Footer() {
               </a>
             ))}
           </div>
-          <p className="type-c2-med text-neutral-500">
+          <Typography variant="c2Medium" color="text.hint">
             © 2021 – Copyright · All rights reserved
-          </p>
+          </Typography>
         </div>
       </Container>
     </footer>

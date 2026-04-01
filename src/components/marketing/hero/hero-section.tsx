@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { TrendingUp } from "lucide-react";
 import { cn } from "@/core/utils/cn";
 import { TRENDING_COUNTRIES } from "@/components/marketing/country-grid/country-grid.data";
+import { Typography } from "@/components/ui/typography";
 
 const DESTINATIONS = TRENDING_COUNTRIES.map((c) => c.country);
 const INTERVAL_MS = 2200;
@@ -76,10 +77,10 @@ export function HeroSection() {
       </h1>
 
       {/* Subheading */}
-      <p className="mx-auto mt-5 max-w-lg type-b1-reg text-neutral-500">
+      <Typography variant="b1Regular" color="text.hint" className="mx-auto mt-5 max-w-lg">
         Compare trusted courier partners, schedule a pickup, and deliver
         worldwide—without the hassle.
-      </p>
+      </Typography>
     </section>
   );
 }

@@ -2,6 +2,7 @@
 
 import { Package, TrendingUp, Clock, CheckCircle2 } from "lucide-react";
 import { useAuthStore } from "@/domains/user/store/auth.store";
+import { Typography } from "@/components/ui/typography";
 
 const STATS = [
   { label: "Total Shipments", value: "1,284", icon: Package,      color: "text-info-700",    bg: "bg-info-100"    },
@@ -16,12 +17,12 @@ export default function DashboardPage() {
   return (
     <div className="p-8">
       <div className="mb-8">
-        <h1 className="type-h2-bold text-neutral-900">
+        <Typography variant="h2Bold" color="text.primary">
           Welcome back, {user?.name?.split(" ")[0] ?? "there"} 👋
-        </h1>
-        <p className="mt-1 type-b2-reg text-neutral-500">
+        </Typography>
+        <Typography variant="b2Regular" color="text.hint" className="mt-1">
           Here&apos;s what&apos;s happening with your shipments today.
-        </p>
+        </Typography>
       </div>
 
       {/* Stats */}
@@ -35,8 +36,8 @@ export default function DashboardPage() {
               <Icon className={`h-5 w-5 ${color}`} />
             </div>
             <div>
-              <p className="type-h3-bold text-neutral-900">{value}</p>
-              <p className="type-c1-med text-neutral-500">{label}</p>
+              <Typography variant="h3Bold" color="text.primary">{value}</Typography>
+              <Typography variant="c1Medium" color="text.hint">{label}</Typography>
             </div>
           </div>
         ))}
@@ -45,9 +46,9 @@ export default function DashboardPage() {
       {/* Placeholder */}
       <div className="rounded-2xl border border-dashed border-neutral-300 bg-white-100 p-12 text-center">
         <Package className="mx-auto mb-3 h-10 w-10 text-neutral-300" />
-        <p className="type-b2-med text-neutral-400">
+        <Typography variant="b2Medium" color="text.disabled">
           Charts, recent activity, and analytics will appear here once backend is integrated.
-        </p>
+        </Typography>
       </div>
     </div>
   );

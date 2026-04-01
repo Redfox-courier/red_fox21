@@ -5,6 +5,7 @@ import { Search, MapPin, CheckCircle2, Circle, Loader2 } from "lucide-react";
 import { useTrackingStore } from "@/domains/tracking/store/tracking.store";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Typography } from "@/components/ui/typography";
 import { cn } from "@/core/utils/cn";
 
 export default function TrackingPage() {
@@ -19,10 +20,10 @@ export default function TrackingPage() {
   return (
     <div className="p-8">
       <div className="mb-8">
-        <h1 className="type-h2-bold text-neutral-900">Track Shipment</h1>
-        <p className="mt-1 type-b2-reg text-neutral-500">
+        <Typography variant="h2Bold" color="text.primary">Track Shipment</Typography>
+        <Typography variant="b2Regular" color="text.hint" className="mt-1">
           Enter your tracking number to see real-time updates.
-        </p>
+        </Typography>
       </div>
 
       {/* Search form */}
@@ -59,8 +60,12 @@ export default function TrackingPage() {
         <div className="max-w-2xl rounded-2xl border border-neutral-200 bg-white-100 p-6 shadow-sm space-y-6">
           <div className="flex items-start justify-between">
             <div>
-              <p className="type-c1-semi uppercase tracking-widest text-neutral-400 mb-1">Tracking Number</p>
-              <p className="font-mono type-t2-bold text-neutral-900">{result.trackingNumber}</p>
+              <Typography variant="c1Semi" color="text.disabled" className="uppercase tracking-widest mb-1">
+                Tracking Number
+              </Typography>
+              <Typography variant="t2Bold" color="text.primary" className="font-mono">
+                {result.trackingNumber}
+              </Typography>
             </div>
             <span className="rounded-full bg-warning-100 text-warning-700 px-3 py-1 type-c1-semi capitalize">
               {result.currentStatus.replace("_", " ")}
@@ -69,24 +74,24 @@ export default function TrackingPage() {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="type-c1-med text-neutral-400 mb-0.5">Carrier</p>
-              <p className="type-b2-semi text-neutral-800">{result.carrier}</p>
+              <Typography variant="c1Medium" color="text.disabled" className="mb-0.5">Carrier</Typography>
+              <Typography variant="b2Semi" color="text.primary">{result.carrier}</Typography>
             </div>
             <div>
-              <p className="type-c1-med text-neutral-400 mb-0.5">Est. Delivery</p>
-              <p className="type-b2-semi text-neutral-800">
+              <Typography variant="c1Medium" color="text.disabled" className="mb-0.5">Est. Delivery</Typography>
+              <Typography variant="b2Semi" color="text.primary">
                 {new Date(result.estimatedDelivery).toLocaleDateString("en-IN", {
                   day: "numeric", month: "long", year: "numeric",
                 })}
-              </p>
+              </Typography>
             </div>
           </div>
 
           {/* Timeline */}
           <div>
-            <p className="type-c1-semi uppercase tracking-widest text-neutral-400 mb-4">
+            <Typography variant="c1Semi" color="text.disabled" className="uppercase tracking-widest mb-4">
               Tracking History
-            </p>
+            </Typography>
             <ol className="relative space-y-5 border-l-2 border-neutral-200 pl-6">
               {result.events.map((event, i) => {
                 const isFirst = i === 0;
@@ -101,15 +106,15 @@ export default function TrackingPage() {
                         : <Circle className="h-3 w-3 text-neutral-400" />}
                     </div>
                     <div>
-                      <p className="type-b2-semi text-neutral-800">{event.description}</p>
+                      <Typography variant="b2Semi" color="text.primary">{event.description}</Typography>
                       <div className="flex items-center gap-2 mt-0.5">
                         <MapPin className="h-3 w-3 text-neutral-400" />
-                        <p className="type-c1-med text-neutral-400">
+                        <Typography variant="c1Medium" color="text.disabled">
                           {event.location} ·{" "}
                           {new Date(event.timestamp).toLocaleString("en-IN", {
                             day: "numeric", month: "short", hour: "2-digit", minute: "2-digit",
                           })}
-                        </p>
+                        </Typography>
                       </div>
                     </div>
                   </li>
