@@ -3,10 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Clock, Package2, ArrowUpRight } from "lucide-react";
-import DiscountOutlinedIcon from '@mui/icons-material/DiscountOutlined';
 import { cn } from "@/core/utils/cn";
-import { Height } from "@mui/icons-material";
-import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 
 export interface CountryCardData {
   id: string;
@@ -29,12 +26,8 @@ export function CountryCard({ data, className }: CountryCardProps) {
       href={`/ship-to/${data.slug}` as never}
       className={cn(
         "group relative flex flex-col justify-end overflow-hidden",
-        "w-[325.2px] h-[360px]", // ✅ Figma exact size
-        "rounded-[24px]", // closer to Figma than rounded-2xl
-        "cursor-pointer",
-        "group relative flex flex-col justify-end overflow-hidden",
-        "w-[325.2px] h-[360px]", // ✅ Figma exact size
-        "rounded-[24px]", // closer to Figma than rounded-2xl
+        "w-full aspect-[9/10]",
+        "rounded-2xl sm:rounded-[24px]",
         "cursor-pointer",
         "shadow-[0_2px_12px_rgba(0,0,0,0.10)] transition-all duration-300",
         "hover:shadow-[0_8px_32px_rgba(193,66,27,0.18)] hover:-translate-y-1",
@@ -47,98 +40,45 @@ export function CountryCard({ data, className }: CountryCardProps) {
         alt={`Ship to ${data.country}`}
         fill
         className="object-cover transition-transform duration-500 group-hover:scale-105"
-        sizes="243px" // ✅ optimized for fixed width
+        sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px)   25vw, 20vw"
       />
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/15 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
 
       {/* Top badge */}
-<div className="absolute top-3 right-3 z-10">
-  <span
-    className="
-      inline-flex items-center justify-center gap-1
-      w-[139px] h-[29px]
-      px-[0px] py-[6px]
-      rounded-[80px]
-      bg-white/90 backdrop-blur-sm
-      type-c2-semi text-neutral-800
-      shadow-sm whitespace-nowrap
-    "
-  >
-    <DiscountOutlinedIcon
-  sx={{ fontSize: 16 }}
-  className="text-brand-600"
-/>
-    From {data.estimatedRate}
-  </span>
-</div>
+      <div className="absolute top-2.5 left-1/2 -translate-x-1/2 z-10">
+        <span className="inline-flex items-center gap-1 rounded-full bg-white-100/90 backdrop-blur-sm px-2 py-0.5 sm:px-2.5 sm:py-1 type-c2-semi text-neutral-800 shadow-sm whitespace-nowrap">
+          <MapPin className="h-2.5 w-2.5 text-brand-600 shrink-0" />
+          <span className="truncate">Est. from {data.estimatedRate}</span>
+        </span>
+      </div>
 
       {/* Card content */}
-      <div className="relative z-10 p-4 pt-0">
-        <div className="flex items-end justify-between mb-1.5">
-          <h3 className="type-t3-bold text-white-100 leading-tight">{data.country}</h3>
-          <span className="type-c2-med text-white-100">
-            {data.ordersDelivered} Orders Delivered
+      <div className="relative z-10 p-3 pt-0 sm:p-4">
+        <div className="flex items-end justify-between mb-1">
+          <h3 className="type-t4-bold sm:type-t3-bold text-white-100 leading-tight">{data.country}</h3>
+          <span className="hidden sm:block type-c2-med text-neutral-300 text-right shrink-0 ml-1">
+            {data.ordersDelivered} Orders
           </span>
         </div>
 
-        <div className="flex items-center gap-1 mb-3">
-         <CalendarTodayOutlinedIcon
-  sx={{
-    width: "11.6667px",
-    height: "12.8333px",
-    // fontSize: "12.8333px", // important for MUI scaling
-  }}
-  className="text-white-100"
-/>
-          <span className="type-c2-med text-white-100">
-            Est. delivery: <strong className="text-white-100 font-semibold">{data.deliveryTime}</strong>
+        <div className="flex items-center gap-1 mb-2 sm:mb-3">
+          <Clock className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-neutral-300 shrink-0" />
+          <span className="type-c2-med text-neutral-300 truncate">
+            <span className="hidden xs:inline">Est. delivery: </span>
+            <strong className="text-white-100 font-semibold">{data.deliveryTime}</strong>
           </span>
         </div>
 
         {/* CTA Button */}
-        <div className="flex items-center gap-2">
-  {/* Main CTA */}
-  <button className="
-    flex-1
-    flex items-center justify-center gap-2
-    h-[48px]
-    rounded-full
-    bg-white/100
-    backdrop-blur-md
-    px-4
-    type-c1-semi text-neutral-900
-    transition-all
-    group-hover:bg-brand-600 group-hover:text-white
-  ">
-    {/* <Package2 className="h-4 w-4" /> */}
-    Get shipping quote
-  </button>
-
-  {/* Arrow Circle */}
-  <button
-  className="
-    relative flex items-center justify-center
-    w-[48px] h-[48px]
-    rounded-full
-
-    bg-gradient-to-br
-    from-[#ffffff1a]
-    via-[#F3551E33]
-    to-[#00000033]
-
-    border border-white/60
-
-    shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),0_4px_20px_rgba(0,0,0,0.25)]
-
-    transition-all duration-300
-    hover:scale-105
-  "
->
-  <ArrowUpRight className="h-4 w-4 text-white" />
-</button>
-</div>
+        <button className="flex w-full items-center justify-between rounded-lg sm:rounded-xl bg-white-100 px-2.5 py-2 sm:px-3.5 sm:py-2.5 type-c2-semi sm:type-c1-semi text-neutral-900 transition-colors group-hover:bg-brand-600 group-hover:text-white-100">
+          <span className="flex items-center gap-1 sm:gap-1.5">
+            <Package2 className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
+            <span className="truncate">Get shipping quote</span>
+          </span>
+          <ArrowUpRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0 opacity-60 group-hover:opacity-100" />
+        </button>
       </div>
     </Link>
   );
