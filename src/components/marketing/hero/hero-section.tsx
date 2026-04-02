@@ -53,39 +53,34 @@ export function HeroSection() {
       </div>
 
       {/* Headline */}
-      <h1 className="mx-auto max-w-2xl type-display-sm sm:type-display-md text-neutral-900 tracking-tight">
+
+      <h1 className="mx-auto max-w-6xl text-4xl font-stretch-ultra-condensed sm:text-5xl lg:text-6xl font-bold text-neutral-700 ">
         Ship Internationally to
-        {/* Animated destination — overflow hidden clips the slide */}
-        <span className="relative ml-3 inline-block overflow-hidden align-bottom">
-          {/*
-            We render two spans — the animating one and a hidden "sizer" that
-            keeps the parent width stable so the rest of the headline never
-            shifts as different-length country names cycle through.
-          */}
-          <span
-            aria-hidden
-            className="invisible block"
-            style={{ minWidth: "1ch" }}
-          >
-            {/* Widest country name to reserve max space */}
+
+        <span className="relative ml-4 inline-block align-bottom">
+
+          {/* Sizer (keeps width stable based on longest text) */}
+          <span className="invisible whitespace-nowrap block">
             {DESTINATIONS.reduce((a, b) => (a.length >= b.length ? a : b))}
           </span>
 
+          {/* Animated Text */}
           <span
             key={currentIndex}
             className={cn(
-              "absolute inset-0 flex items-center justify-start  text-[#E84C14]",
+              "absolute inset-0 flex items-center text-[#E84C14] whitespace-nowrap",
               phase === "enter" && "destination-enter",
               phase === "exit" && "destination-exit"
             )}
           >
             {DESTINATIONS[currentIndex]}.
           </span>
+
         </span>
       </h1>
 
       {/* Subheading */}
-      <Typography variant="b1Regular" color="text.hint" className="mx-auto mt-5 max-w-lg">
+      <Typography variant="t2Bold" color="text.hint" className="mx-auto mt-3 max-w-lg font-medium">
         Compare trusted courier partners, schedule a pickup, and deliver
         worldwide—without the hassle.
       </Typography>

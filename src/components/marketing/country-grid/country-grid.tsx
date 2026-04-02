@@ -7,6 +7,7 @@ import { TRENDING_COUNTRIES } from "./country-grid.data";
 import { Input } from "@/components/ui/input";
 import { Container } from "@/components/shared/container/container";
 import { Typography } from "@/components/ui/typography";
+import Image from "next/image";
 
 export function CountryGrid() {
   const [query, setQuery] = useState("");
@@ -25,19 +26,32 @@ export function CountryGrid() {
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           {/* Search */}
           <div className="relative w-full sm:w-72">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400 pointer-events-none" />
+            <span className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-7 h-7 rounded-full bg-white ">
+              <Search className="h-3.5 w-3.5 text-brand-600" />
+            </span>
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Enter destination country or city"
-              className="h-10 pl-9 pr-4 rounded-full border-neutral-200 bg-neutral-100 type-b2-reg focus-visible:ring-brand-600/30 focus-visible:border-brand-600"
+              className="h-10 pl-10 pr-4 rounded-full border-[#F8F6F6] bg-[#FCFAFA] "
             />
           </div>
-          <div className="flex items-center gap-2">
-            <Flame className="h-4 w-4 text-brand-600" />
+          <div className="flex items-center gap-2 px-3 py-2.5 rounded-full bg-[#FFF7F5]">
+            
             <Typography variant="b2Semi" color="text.secondary" as="span">
               Trending Countries
             </Typography>
+       <span className="rounded-full bg-white px-2 py-1.5">
+              <Image
+                          src="/Icons/flame.svg"
+                          alt="Redfox Courier Logo"
+                          width={10}
+                          height={10}
+                          priority
+                          className="h-4 w-auto"
+                        />
+                        </span>
+            {/* <Flame className="h-4 w-4 text-brand-600" /> */}
           </div>
         </div>
 
