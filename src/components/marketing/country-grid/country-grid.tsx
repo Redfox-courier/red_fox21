@@ -23,13 +23,6 @@ export function CountryGrid() {
       <Container>
         {/* Section header */}
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-2">
-            <Flame className="h-4 w-4 text-brand-600" />
-            <Typography variant="b2Semi" color="text.secondary" as="span">
-              Trending Countries
-            </Typography>
-          </div>
-
           {/* Search */}
           <div className="relative w-full sm:w-72">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400 pointer-events-none" />
@@ -39,6 +32,12 @@ export function CountryGrid() {
               placeholder="Enter destination country or city"
               className="h-10 pl-9 pr-4 rounded-full border-neutral-200 bg-neutral-100 type-b2-reg focus-visible:ring-brand-600/30 focus-visible:border-brand-600"
             />
+          </div>
+          <div className="flex items-center gap-2">
+            <Flame className="h-4 w-4 text-brand-600" />
+            <Typography variant="b2Semi" color="text.secondary" as="span">
+              Trending Countries
+            </Typography>
           </div>
         </div>
 
