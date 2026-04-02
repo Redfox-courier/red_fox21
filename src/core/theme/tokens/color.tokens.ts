@@ -30,7 +30,7 @@ export const colorTokens = {
     primary:   "text-neutral-900",
     secondary:  "text-neutral-600",
     disabled:   "text-neutral-400",
-    hint:       "text-neutral-500",
+    hint:       "text-neutral-600",
     white:      "text-white-100",
     brand:      "text-brand-600",
   },
