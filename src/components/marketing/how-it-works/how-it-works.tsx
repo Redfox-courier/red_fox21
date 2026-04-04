@@ -46,21 +46,20 @@ function StepCard({ step }: StepCardProps) {
       className={cn(
         "flex flex-col",
         "rounded-2xl bg-white overflow-hidden",
-        "border border-white",
-        "shadow-sm"
+        "border border-[#F8F6F6]",
+        // "shadow-sm"
       )}
     >
-      {/* Image area */}
-      <div className="w-full h-[412px] overflow-hidden">
+      {/* Image area — inset with padding + its own rounded corners */}
+    <div className="w-full ">
+      <div className="w-full h-[412px] overflow-hidden bg-white-200 rounded-2xl">
         <img
           src={step.image}
           alt={step.title}
           className="w-full h-full object-contain"
         />
       </div>
-
-      {/* Divider */}
-      <div className="h-px bg-gray-100 mx-5" />
+  </div>
 
       {/* Text area */}
       <div className="p-6">
@@ -71,8 +70,7 @@ function StepCard({ step }: StepCardProps) {
           {step.description}
         </Typography>
       </div>
-    </div>
-  );
+    </div>)
 }
 
 export function HowItWorks() {
