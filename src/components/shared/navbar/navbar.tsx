@@ -86,7 +86,7 @@ export function Navbar() {
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <Link href={ROUTES.LOGIN} className="hover:text-brand-600 transition-colors">
-              <Typography variant="b2Medium" color="text.secondary" as="span" className="hover:text-brand-600">
+              <Typography variant="t4Semi" color="text.primary" as="span" className="text-orange-500">
                 Login
               </Typography>
             </Link>

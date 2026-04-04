@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/core/utils/cn";
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import DiscountOutlinedIcon from '@mui/icons-material/DiscountOutlined';
+import { Typography } from "@/components/ui/typography";
 
 export interface CountryCardData {
   id: string;
@@ -55,56 +56,89 @@ export function CountryCard({ data, className }: CountryCardProps) {
             sx={{ fontSize: { xs: 13, sm: 16 } }}
             className="text-brand-600"
           />
-          Est. from {data.estimatedRate}
+          <Typography variant="b3Semi">From {data.estimatedRate}</Typography>
         </span>
       </div>
 
       {/* Card content */}
       <div className="relative z-10 p-3 pt-0 sm:p-4">
         <div className="flex items-end justify-between mb-1">
-          <h3 className="type-t4-bold sm:type-t3-bold text-white-100 leading-tight">{data.country}</h3>
-          <span className="hidden sm:block type-c2-med text-white-100 text-right shrink-0 ml-1">
-            {data.ordersDelivered} Orders
+
+          <Typography variant="t3Bold" color="text-white-100">{data.country}</Typography>
+
+          <span className="hidden sm:block text-right shrink-0 ml-1">
+            <Typography variant="b3Medium" color="text-white-100">{data.ordersDelivered} Orders Shipped</Typography>
           </span>
         </div>
 
-        <div className="flex items-center gap-1 mb-2 sm:mb-3">
-          <CalendarTodayOutlinedIcon
-            sx={{
-              width: "11.6667px",
-              height: "12.8333px",
-              fontSize: "12.8333px",
-            }}
-            className="text-white-100"
-          />
-          <span className="type-c2-med text-neutral-300 truncate">
-            <span className="hidden sm:inline">Est. delivery: </span>
-            <strong className="text-white-100 font-semibold">{data.deliveryTime}</strong>
-          </span>
+        {/* Divider */}
+        <div className="h-px w-full bg-white/50 mb-1 sm:mb-3" />
+
+        {/* Delivery row */}
+        <div className="flex items-center justify-between gap-2 mb-2">
+
+          {/* Left */}
+          <div className="flex items-center gap-1 min-w-0">
+            <CalendarTodayOutlinedIcon
+              sx={{
+                width: "11.6667px",
+                height: "12.8333px",
+                fontSize: "12.8333px",
+              }}
+              className="text-white-100 shrink-0"
+            />
+
+            <Typography
+              variant="b3Regular"
+              className="text-white-100"
+            >
+              Est. delivery:
+            </Typography>
+          </div>
+
+          {/* Right */}
+          <Typography
+            variant="c2Semi"
+            className="text-white-100 shrink-0"
+          >
+            {data.deliveryTime}
+          </Typography>
         </div>
 
         {/* CTA Button */}
         <div className="flex items-center gap-2">
           <button className="flex-1 flex items-center justify-center gap-1 h-10 sm:h-10 rounded-full bg-white/90 backdrop-blur-md px-4 type-c1-semi text-neutral-900 transition-all group-hover:bg-brand-600 group-hover:text-white">
-            Get shipping quote
+            <Typography variant="c1Semi">Get shipping quote</Typography>
           </button>
 
           {/* Arrow Circle */}
-          <button
-            className="flex items-center justify-center w-10 h-10 sm:w-10 sm:h-10 rounded-full cursor-pointer transition-all duration-200 group-hover:bg-brand-600/85 group-hover:border-brand-600/60 bg-transparent"
-            style={{
-              background: 'transparent',
-              border: '0.5px solid rgba(255, 255, 255, 0.35)',
-              // boxShadow: '0 4px 24px rgba(0,0,0,0.3), inset 0 1.5px 0 rgba(255,255,255,0.55), inset 0 -1px 0 rgba(0,0,0,0.2)',
-               boxShadow: `
-  0 4px 24px rgba(0,0,0,0.3),
-  inset 1px 1px 0 rgba(255,255,255,0.7),
-  inset -1px -1px 0 rgba(255,255,255,0.7)
-`
-            }}
-          >
-            <ArrowUpRight className="h-4 w-4 text-white" />
-          </button>
+         <button
+  className="relative flex items-center justify-center w-10 h-10 rounded-full cursor-pointer 
+  transition-all duration-300 group-hover:scale-110
+  
+  /* Liquid Glass Base */
+  bg-white/10 backdrop-blur-md border border-white/40
+  
+  /* Depth + Glow */
+  shadow-[inset_0_1px_2px_rgba(255,255,255,0.6),0_4px_24px_rgba(0,0,0,0.3)]
+  
+  /* Refraction Layers */
+  before:absolute before:inset-0 before:rounded-full 
+  before:bg-gradient-to-br before:from-white/70 before:via-transparent before:to-transparent 
+  before:opacity-70 before:pointer-events-none
+  
+  after:absolute after:inset-0 after:rounded-full 
+  after:bg-gradient-to-tl after:from-white/40 after:via-transparent after:to-transparent 
+  after:opacity-50 after:pointer-events-none
+  
+  /* Interaction */
+  hover:bg-white/20 hover:border-white/60 hover:shadow-[inset_0_1px_3px_rgba(255,255,255,0.8),0_6px_28px_rgba(0,0,0,0.35)]
+  
+  antialiased"
+>
+  <ArrowUpRight className="h-4 w-4 text-white drop-shadow-md" />
+</button>
+
         </div>
       </div>
     </Link>
