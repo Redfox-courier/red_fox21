@@ -37,20 +37,20 @@ export function CountryGrid() {
             />
           </div>
           <div className="flex items-center gap-2 px-3 py-2.5 rounded-full bg-[#FFF7F5]">
-            
+
             <Typography variant="b2Semi" color="text.secondary" as="span">
               Trending Countries
             </Typography>
-       <span className="rounded-full bg-white px-2 py-1.5">
+            <span className="rounded-full bg-white px-2 py-1.5">
               <Image
-                          src="/Icons/flame.svg"
-                          alt="Redfox Courier Logo"
-                          width={10}
-                          height={10}
-                          priority
-                          className="h-4 w-auto"
-                        />
-                        </span>
+                src="/Icons/flame.svg"
+                alt="Redfox Courier Logo"
+                width={10}
+                height={10}
+                priority
+                className="h-4 w-auto"
+              />
+            </span>
             {/* <Flame className="h-4 w-4 text-brand-600" /> */}
           </div>
         </div>

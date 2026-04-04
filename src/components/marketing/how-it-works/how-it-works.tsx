@@ -4,7 +4,7 @@ import { Workflow } from "lucide-react";
 import { cn } from "@/core/utils/cn";
 import { Container } from "@/components/shared/container/container";
 import { Typography } from "@/components/ui/typography";
-
+import WebhookOutlinedIcon from '@mui/icons-material/WebhookOutlined';
 interface Step {
   id: number;
   image: string;
@@ -97,18 +97,18 @@ export function HowItWorks() {
               rounded-[40px]
               border border-[#FFEEE8]
               bg-[#FFF7F5]
-              px-4 py-1.5
+              px-2 py-1.5
             "
           >
             <span
               className="
-                flex h-6 w-6 items-center justify-center
+                flex h-6 w-8 items-center justify-center
                 rounded-full
                 border border-[#FDBDA5]
                 bg-[#E84C14]/10
               "
             >
-              <Workflow className="h-3.5 w-3.5 text-brand-600" />
+              <WebhookOutlinedIcon className="h-4 w-4 text-brand-600" />
             </span>
             <Typography variant="b2Semi" color="text.secondary" as="span">
               How RedFoxCourier works
