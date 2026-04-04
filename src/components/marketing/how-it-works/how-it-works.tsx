@@ -1,6 +1,6 @@
 "use client";
 
-import { Workflow } from "lucide-react";
+import { Webhook } from "lucide-react";
 import { cn } from "@/core/utils/cn";
 import { Container } from "@/components/shared/container/container";
 import { Typography } from "@/components/ui/typography";
