@@ -379,6 +379,7 @@
   .type-b3-reg  { font-size: var(--text-b3); line-height: var(--text-b3--line-height); font-weight: 400; }
   .type-b4-semi { font-size: var(--text-b4); line-height: var(--text-b4--line-height); font-weight: 600; }
   .type-b4-med  { font-size: var(--text-b4); line-height: var(--text-b4--line-height); font-weight: 500; }
+  .type-b4-reg  { font-size: var(--text-b4); line-height: var(--text-b4--line-height); font-weight: 400; }
 
   /* ── Caption ──────────────────────────────────────────── */
   .type-c1-semi { font-size: var(--text-c1); line-height: var(--text-c1--line-height); font-weight: 600; }
