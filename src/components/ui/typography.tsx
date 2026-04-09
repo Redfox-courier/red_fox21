@@ -19,7 +19,7 @@ export type TypographyVariant =
   | "b1Semi" | "b1Medium" | "b1Regular"
   | "b2Semi" | "b2Medium" | "b2Regular"
   | "b3Semi" | "b3Medium" | "b3Regular"
-  | "b4Semi" | "b4Medium"
+  | "b4Semi" | "b4Medium" | "b4Regular"
   // Caption
   | "c1Semi" | "c1Medium"
   | "c2Semi" | "c2Medium";

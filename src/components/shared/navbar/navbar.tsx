@@ -10,6 +10,7 @@ import { Container } from "../container/container";
 import Image from "next/image";
 import { Icons, type LucideIcon } from "@/core/constants/icons";
 import { Typography } from "@/components/ui/typography";
+import { Logo } from "../Logo";
 
 const SERVICE_ICONS: Record<string, LucideIcon> = {
   warehouse:    Icons.logistics.warehouse,
@@ -42,15 +43,7 @@ export function Navbar() {
       <Container>
         <nav className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href={ROUTES.HOME} className="flex items-center shrink-0">
-            <Image
-              src="/Home/REDFOXCOURIER LOGO.svg"
-              alt="Redfox Courier Logo"
-              width={197}
-              height={24}
-              priority
-            />
-          </Link>
+          <Logo />
 
           {/* Desktop Nav */}
           <ul className="hidden lg:flex items-center gap-1">

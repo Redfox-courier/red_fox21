@@ -15,6 +15,7 @@ import { useAuthStore } from "@/domains/user/store/auth.store";
 import { ROUTES } from "@/core/constants/routes";
 import { Typography } from "@/components/ui/typography";
 import Image from "next/image";
+import { Logo } from "@/components/shared/Logo";
 
 const SIDEBAR_LINKS: { label: string; href: string; icon: React.ElementType }[] = [
   { label: "Dashboard", href: ROUTES.DASHBOARD, icon: LayoutDashboard },
@@ -34,16 +35,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <aside className="sticky top-0 flex h-screen w-60 shrink-0 flex-col border-r border-neutral-200 bg-white-100">
         {/* Logo */}
         <div className="flex h-16 items-center border-b border-neutral-200 px-6">
-          <Link href={ROUTES.HOME} className="flex items-center shrink-0">
-            <Image
-              src="/Home/REDFOXCOURIER LOGO.svg"
-              alt="Redfox Courier Logo"
-              width={160}
-              height={40}
-              priority
-              className="h-10 w-auto"
-            />
-          </Link>
+          <Logo className="h-10" />
         </div>
 
         {/* Nav */}
